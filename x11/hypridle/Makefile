@@ -1,9 +1,10 @@
 PORTNAME=	hypridle
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.1.6
+PORTREVISION=	2
 CATEGORIES=	x11 wayland
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Hyprland's idle daemon #'
 WWW=		https://github.com/hyprwm/hypridle
 

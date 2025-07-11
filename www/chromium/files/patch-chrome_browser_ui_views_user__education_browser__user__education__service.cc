@@ -1,7 +1,7 @@
---- chrome/browser/ui/views/user_education/browser_user_education_service.cc.orig	2025-03-05 08:14:56 UTC
+--- chrome/browser/ui/views/user_education/browser_user_education_service.cc.orig	2025-07-02 06:08:04 UTC
 +++ chrome/browser/ui/views/user_education/browser_user_education_service.cc
-@@ -889,7 +889,7 @@ void MaybeRegisterChromeFeaturePromos(
-                          "defaulted to saved for the first time.")));
+@@ -1059,7 +1059,7 @@ void MaybeRegisterChromeFeaturePromos(
+                 "Triggered when a shared tab becomes the active tab.")));
    }
  
 -#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_WIN)
@@ -9,7 +9,7 @@
    // kIPHSupervisedUserProfileSigninFeature
    registry.RegisterFeature(std::move(
        FeaturePromoSpecification::CreateForCustomAction(
-@@ -1143,7 +1143,7 @@ void MaybeRegisterChromeFeaturePromos(
+@@ -1317,7 +1317,7 @@ void MaybeRegisterChromeFeaturePromos(
                         "Triggered to inform users of the availability of the "
                         "new translate screen feature on the Lens Overlay.")));
  

@@ -1,11 +1,12 @@
 PORTNAME=	openmodelica
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.24.5
+DISTVERSION=	1.25.1
+PORTREVISION=	1
 CATEGORIES=	science cad java
 DIST_SUBDIR=	${PORTNAME}-${PORTVERSION}
 
-PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
-PATCHFILES=	6f8126fcd491d8c4d8b8c643bf0b6abd3a1f23f5.patch:-p1 # https://github.com/OpenModelica/OpenModelica/pull/13683
+#PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+#PATCHFILES=	6f8126fcd491d8c4d8b8c643bf0b6abd3a1f23f5.patch:-p1 # https://github.com/OpenModelica/OpenModelica/pull/13683
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Modelica-based modeling and simulation environment
@@ -17,7 +18,7 @@ LICENSE_NAME=	Public license for OpenModelica
 LICENSE_TEXT=	See https://github.com/OpenModelica/OpenModelica/blob/master/OSMC-License.txt
 LICENSE_PERMS=	auto-accept dist-mirror dist-sell pkg-mirror pkg-sell
 
-BROKEN_aarch64=	compilation fails: gcc13 doesn't install libquadmath.so, see https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=285692
+BROKEN_aarch64=	compilation fails: OpenModelica expects libquadmath.so, which does not exist on aarch64 (PR 285692)
 BROKEN_armv7=	link fails: ld: cannot find -lquadmath: No such file or directory
 BROKEN_i386=	compilation fails: /wrkdirs/usr/ports/science/openmodelica/work/OpenModelica-1.20.0/OMCompiler/3rdParty/libffi/src/x86/sysv.S:841:1: error: changed section flags for .eh_frame, expected: 0x2
 
@@ -32,7 +33,7 @@ LIB_DEPENDS=	libboost_filesystem.so:devel/boost-libs \
 		libcurl.so:ftp/curl \
 		libicuuc.so:devel/icu \
 		libosg.so:graphics/osg \
-		libuuid.so:misc/e2fsprogs-libuuid
+		libuuid.so:misc/libuuid
 RUN_DEPENDS=	bash:shells/bash \
 		gmake:devel/gmake
 
@@ -41,7 +42,7 @@ USES=		cmake compiler:c++14-lang iconv fortran gettext-runtime gl \
 		python:build shebangfix java
 USE_QT=		concurrent core declarative gui location network opengl \
 		printsupport svg webchannel webengine widgets xml xmlpatterns \
-		buildtools:build qmake:build
+		buildtools:build linguisttools:build qmake:build
 USE_GL=		gl opengl
 USE_GNOME=	libxml2
 USE_LDCONFIG=	${PREFIX}/lib/omc ${PREFIX}/lib/omc/OMSimulator ${PREFIX}/lib/omc/cpp ${PREFIX}/lib/omc/ffi # https://github.com/OpenModelica/OpenModelica/issues/9925
@@ -69,6 +70,7 @@ CMAKE_ARGS=	-DCMAKE_MAKE_PROGRAM=gmake \
 		-DPython_EXECUTABLE=${PYTHON_CMD}
 
 CMAKE_ARGS+=	-DOM_USE_CCACHE:BOOL=${CCACHE_ENABLED:S/yes/ON/:S/no/OFF/} # if refuses to build w/out ccache by default
+#CMAKE_ARGS+=	-DOM_QT_MAJOR_VERSION=6 # broken, see https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=287596
 CMAKE_ON=	OM_OMEDIT_ENABLE_QTWEBENGINE
 
 LDFLAGS+=	-lexecinfo -lintl -pthread

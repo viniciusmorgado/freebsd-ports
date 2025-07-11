@@ -1,4 +1,3 @@
-bin/ctags
 bin/ebrowse
 bin/emacs
 bin/emacs-%%EMACS_VER%%
@@ -597,6 +596,21 @@ share/applications/emacsclient.desktop
 %%DATADIR%%/%%EMACS_VER%%/etc/images/outline-close.svg
 %%DATADIR%%/%%EMACS_VER%%/etc/images/outline-open.pbm
 %%DATADIR%%/%%EMACS_VER%%/etc/images/outline-open.svg
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/README
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/delete.pbm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/delete.xpm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/execute.pbm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/execute.xpm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/info.pbm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/info.xpm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/install.pbm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/install.xpm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/unmark.pbm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/unmark.xpm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/upgrade.pbm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/upgrade.xpm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/url.pbm
+%%DATADIR%%/%%EMACS_VER%%/etc/images/package-menu/url.xpm
 %%DATADIR%%/%%EMACS_VER%%/etc/images/paste.pbm
 %%DATADIR%%/%%EMACS_VER%%/etc/images/paste.xpm
 %%DATADIR%%/%%EMACS_VER%%/etc/images/preferences.pbm
@@ -2587,6 +2601,8 @@ share/applications/emacsclient.desktop
 %%DATADIR%%/%%EMACS_VER%%/lisp/leim/quail/ZOZY.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/leim/quail/arabic.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/leim/quail/arabic.elc
+%%DATADIR%%/%%EMACS_VER%%/lisp/leim/quail/burmese.el.gz
+%%DATADIR%%/%%EMACS_VER%%/lisp/leim/quail/burmese.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/leim/quail/cham.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/leim/quail/cham.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/leim/quail/compose.el.gz
@@ -3196,6 +3212,8 @@ share/applications/emacsclient.desktop
 %%DATADIR%%/%%EMACS_VER%%/lisp/obsolete/url-ns.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/obsolete/vc-arch.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/obsolete/vc-arch.elc
+%%DATADIR%%/%%EMACS_VER%%/lisp/obsolete/vc-dav.el.gz
+%%DATADIR%%/%%EMACS_VER%%/lisp/obsolete/vc-dav.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/obsolete/vc-mtn.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/obsolete/vc-mtn.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/obsolete/vt-control.el.gz
@@ -3769,6 +3787,8 @@ share/applications/emacsclient.desktop
 %%DATADIR%%/%%EMACS_VER%%/lisp/reveal.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/rfn-eshadow.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/rfn-eshadow.elc
+%%DATADIR%%/%%EMACS_VER%%/lisp/ring-bell-fns.el.gz
+%%DATADIR%%/%%EMACS_VER%%/lisp/ring-bell-fns.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/rot13.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/rot13.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/rtree.el.gz
@@ -4042,6 +4062,8 @@ share/applications/emacsclient.desktop
 %%DATADIR%%/%%EMACS_VER%%/lisp/tree-widget.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/treesit.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/treesit.elc
+%%DATADIR%%/%%EMACS_VER%%/lisp/treesit-x.el.gz
+%%DATADIR%%/%%EMACS_VER%%/lisp/treesit-x.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/tty-tip.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/tty-tip.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/tutorial.el.gz
@@ -4186,8 +4208,6 @@ share/applications/emacsclient.desktop
 %%DATADIR%%/%%EMACS_VER%%/lisp/vc/vc-bzr.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/vc/vc-cvs.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/vc/vc-cvs.elc
-%%DATADIR%%/%%EMACS_VER%%/lisp/vc/vc-dav.el.gz
-%%DATADIR%%/%%EMACS_VER%%/lisp/vc/vc-dav.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/vc/vc-dir.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/vc/vc-dir.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/vc/vc-dispatcher.el.gz
@@ -4525,7 +4545,6 @@ share/icons/hicolor/scalable/apps/emacs.ico
 share/icons/hicolor/scalable/apps/emacs.svg
 share/icons/hicolor/scalable/mimetypes/emacs-document.svg
 share/icons/hicolor/scalable/mimetypes/emacs-document23.svg
-share/man/man1/ctags.1.gz
 share/man/man1/ebrowse.1.gz
 share/man/man1/emacs.1.gz
 share/man/man1/emacsclient.1.gz

@@ -1,6 +1,6 @@
---- chrome/browser/chrome_content_browser_client.h.orig	2025-03-05 08:14:56 UTC
+--- chrome/browser/chrome_content_browser_client.h.orig	2025-07-02 06:08:04 UTC
 +++ chrome/browser/chrome_content_browser_client.h
-@@ -550,7 +550,7 @@ class ChromeContentBrowserClient : public content::Con
+@@ -577,7 +577,7 @@ class ChromeContentBrowserClient : public content::Con
    bool IsPluginAllowedToUseDevChannelAPIs(
        content::BrowserContext* browser_context,
        const GURL& url) override;

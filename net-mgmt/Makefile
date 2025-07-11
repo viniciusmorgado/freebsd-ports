@@ -129,6 +129,7 @@
     SUBDIR += isic
     SUBDIR += jnettop
     SUBDIR += kapacitor
+    SUBDIR += kf6-networkmanager-qt
     SUBDIR += kismet
     SUBDIR += klg
     SUBDIR += lg
@@ -204,6 +205,7 @@
     SUBDIR += netmagis-www
     SUBDIR += netmask
     SUBDIR += netspoc
+    SUBDIR += networkmanager-shim
     SUBDIR += networkmgr
     SUBDIR += netxms
     SUBDIR += nfdump
@@ -301,6 +303,7 @@
     SUBDIR += php82-snmp
     SUBDIR += php83-snmp
     SUBDIR += php84-snmp
+    SUBDIR += php85-snmp
     SUBDIR += phpfpm_exporter
     SUBDIR += phpipam
     SUBDIR += ping_exporter
@@ -309,9 +312,11 @@
     SUBDIR += pnp
     SUBDIR += pnp-icinga2
     SUBDIR += portmon
+    SUBDIR += prometheus-bird-exporter
     SUBDIR += prometheus-collectd-exporter
     SUBDIR += prometheus1
     SUBDIR += prometheus2
+    SUBDIR += prometheus3
     SUBDIR += promscale
     SUBDIR += promxy
     SUBDIR += pushgateway
@@ -403,7 +408,6 @@
     SUBDIR += torrus
     SUBDIR += triton-guesttools
     SUBDIR += unbound_exporter
-    SUBDIR += unifi8
     SUBDIR += unifi9
     SUBDIR += victoria-logs
     SUBDIR += victoria-metrics
@@ -416,10 +420,6 @@
     SUBDIR += xymon-client
     SUBDIR += xymon-server
     SUBDIR += yaf
-    SUBDIR += zabbix5-agent
-    SUBDIR += zabbix5-java
-    SUBDIR += zabbix5-proxy
-    SUBDIR += zabbix5-server
     SUBDIR += zabbix6-agent
     SUBDIR += zabbix6-frontend
     SUBDIR += zabbix6-java
@@ -435,5 +435,10 @@
     SUBDIR += zabbix72-java
     SUBDIR += zabbix72-proxy
     SUBDIR += zabbix72-server
+    SUBDIR += zabbix74-agent
+    SUBDIR += zabbix74-frontend
+    SUBDIR += zabbix74-java
+    SUBDIR += zabbix74-proxy
+    SUBDIR += zabbix74-server
 
 .include <bsd.port.subdir.mk>

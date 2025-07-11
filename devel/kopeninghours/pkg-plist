@@ -14,11 +14,12 @@ lib/cmake/KOpeningHours/KOpeningHoursTargets-%%CMAKE_BUILD_TYPE%%.cmake
 lib/cmake/KOpeningHours/KOpeningHoursTargets.cmake
 lib/libKOpeningHours.so
 lib/libKOpeningHours.so.1
-lib/libKOpeningHours.so.%%KDE_APPLICATIONS_VERSION%%
+lib/libKOpeningHours.so.%%SHLIB_VER%%
 %%QT_QMLDIR%%/org/kde/kopeninghours/kde-qmlmodule.version
 %%QT_QMLDIR%%/org/kde/kopeninghours/kopeninghoursqmlplugin.qmltypes
 %%QT_QMLDIR%%/org/kde/kopeninghours/libkopeninghoursqmlplugin.so
 %%QT_QMLDIR%%/org/kde/kopeninghours/qmldir
+share/locale/ar/LC_MESSAGES/kopeninghours.mo
 share/locale/ast/LC_MESSAGES/kopeninghours.mo
 share/locale/ca/LC_MESSAGES/kopeninghours.mo
 share/locale/ca@valencia/LC_MESSAGES/kopeninghours.mo
@@ -48,6 +49,7 @@ share/locale/pt/LC_MESSAGES/kopeninghours.mo
 share/locale/pt_BR/LC_MESSAGES/kopeninghours.mo
 share/locale/ro/LC_MESSAGES/kopeninghours.mo
 share/locale/ru/LC_MESSAGES/kopeninghours.mo
+share/locale/sa/LC_MESSAGES/kopeninghours.mo
 share/locale/sk/LC_MESSAGES/kopeninghours.mo
 share/locale/sl/LC_MESSAGES/kopeninghours.mo
 share/locale/sv/LC_MESSAGES/kopeninghours.mo

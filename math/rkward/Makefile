@@ -1,5 +1,6 @@
 PORTNAME=	rkward
-PORTVERSION=	0.8.0
+PORTVERSION=	0.8.1
+PORTREVISION=	1
 CATEGORIES=	math
 MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION}/
 
@@ -9,6 +10,7 @@ WWW=		https://rkward.kde.org/
 
 LICENSE=	GPLv2
 
+BUILD_DEPENDS=	vulkan-headers>0:graphics/vulkan-headers
 LIB_DEPENDS=	libR.so:math/R	\
 		libcups.so:print/cups	\
 		libxkbcommon.so:x11/libxkbcommon
@@ -25,8 +27,8 @@ USE_GL=		opengl
 USE_QT=		5compat base declarative positioning webchannel webengine
 USE_XORG=	ice x11 xext
 USE_KDE=	archive bookmarks breeze-icons colorscheme completion config	\
-		configwidgets coreaddons crash ecm doctools i18n itemviews	\
-		jobwidgets kio notifications parts service solid		\
+		configwidgets coreaddons crash ecm doctools guiaddons i18n	\
+		itemviews jobwidgets kio notifications parts service solid	\
 		syntaxhighlighting texteditor widgetsaddons windowsystem xmlgui
 
 TEST_TARGET=	plugintests
@@ -52,13 +54,13 @@ RUN_DEPENDS+=	${LR_MOD_DIR}/XML/INDEX:textproc/R-cran-XML		\
 		${LR_MOD_DIR}/tseries/INDEX:finance/R-cran-tseries	\
 		${LR_MOD_DIR}/xtable/INDEX:textproc/R-cran-xtable	\
 		${LR_MOD_DIR}/car/INDEX:math/R-cran-car			\
-		${LR_MOD_DIR}/XLConnect/INDEX:math/R-cran-XLConnect	\
 		${LR_MOD_DIR}/ltm/INDEX:math/R-cran-ltm			\
 		${LR_MOD_DIR}/moments/INDEX:math/R-cran-moments		\
 		${LR_MOD_DIR}/pwr/INDEX:math/R-cran-pwr			\
 		${LR_MOD_DIR}/hdrcde/INDEX:math/R-cran-hdrcde		\
 		${LR_MOD_DIR}/devtools/INDEX:devel/R-cran-devtools	\
 		${LR_MOD_DIR}/exactRankTests/INDEX:math/R-cran-exactRankTests
+#RUN_DEPENDS+=	${LR_MOD_DIR}/XLConnect/INDEX:math/R-cran-XLConnect
 .endif
 
 .if ${PORT_OPTIONS:MINSTTEST}

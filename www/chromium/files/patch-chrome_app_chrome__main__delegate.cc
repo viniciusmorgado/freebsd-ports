@@ -1,6 +1,6 @@
---- chrome/app/chrome_main_delegate.cc.orig	2025-03-05 08:14:56 UTC
+--- chrome/app/chrome_main_delegate.cc.orig	2025-07-02 06:08:04 UTC
 +++ chrome/app/chrome_main_delegate.cc
-@@ -146,7 +146,7 @@
+@@ -147,7 +147,7 @@
  #include "components/webui/about/credit_utils.h"
  #endif
  
@@ -75,7 +75,7 @@
    // On Linux, Chrome does not support running multiple copies under different
    // DISPLAYs, so the profile directory can be specified in the environment to
    // support the virtual desktop use-case.
-@@ -666,7 +666,7 @@ void RecordMainStartupMetrics(const StartupTimestamps&
+@@ -668,7 +668,7 @@ void RecordMainStartupMetrics(const StartupTimestamps&
  #endif
  
  #if BUILDFLAG(IS_MAC) || BUILDFLAG(IS_WIN) || BUILDFLAG(IS_LINUX) || \
@@ -84,7 +84,7 @@
    // Record the startup process creation time on supported platforms. On Android
    // this is recorded in ChromeMainDelegateAndroid.
    startup_metric_utils::GetCommon().RecordStartupProcessCreationTime(
-@@ -825,7 +825,7 @@ std::optional<int> ChromeMainDelegate::PostEarlyInitia
+@@ -827,7 +827,7 @@ std::optional<int> ChromeMainDelegate::PostEarlyInitia
  #if BUILDFLAG(IS_OZONE)
    // Initialize Ozone platform and add required feature flags as per platform's
    // properties.
@@ -93,7 +93,7 @@
    ui::SetOzonePlatformForLinuxIfNeeded(*base::CommandLine::ForCurrentProcess());
  #endif
    ui::OzonePlatform::PreEarlyInitialization();
-@@ -973,7 +973,7 @@ void ChromeMainDelegate::CommonEarlyInitialization(Inv
+@@ -982,7 +982,7 @@ void ChromeMainDelegate::CommonEarlyInitialization() {
    const bool is_canary_dev = IsCanaryDev();
    const bool emit_crashes =
  #if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_MAC) || \
@@ -102,7 +102,7 @@
        is_canary_dev;
  #else
        false;
-@@ -1120,7 +1120,7 @@ std::optional<int> ChromeMainDelegate::BasicStartupCom
+@@ -1130,7 +1130,7 @@ std::optional<int> ChromeMainDelegate::BasicStartupCom
      return 0;  // Got a --credits switch; exit with a success error code.
    }
  
@@ -111,7 +111,7 @@
    // This will directly exit if the user asked for help.
    HandleHelpSwitches(command_line);
  #endif
-@@ -1145,7 +1145,7 @@ std::optional<int> ChromeMainDelegate::BasicStartupCom
+@@ -1155,7 +1155,7 @@ std::optional<int> ChromeMainDelegate::BasicStartupCom
    ash::RegisterPathProvider();
    chromeos::dbus_paths::RegisterPathProvider();
  #endif
@@ -120,7 +120,7 @@
    nacl::RegisterPathProvider();
  #endif
  
-@@ -1433,7 +1433,7 @@ void ChromeMainDelegate::PreSandboxStartup() {
+@@ -1439,7 +1439,7 @@ void ChromeMainDelegate::PreSandboxStartup() {
      CHECK(!loaded_locale.empty()) << "Locale could not be found for " << locale;
    }
  
@@ -129,7 +129,7 @@
    // Zygote needs to call InitCrashReporter() in RunZygote().
    if (process_type != switches::kZygoteProcess &&
        !command_line.HasSwitch(switches::kDisableCrashpadForTesting)) {
-@@ -1521,13 +1521,13 @@ absl::variant<int, content::MainFunctionParams> Chrome
+@@ -1527,13 +1527,13 @@ std::variant<int, content::MainFunctionParams> ChromeM
  #else
  
  #if BUILDFLAG(IS_MAC) || (BUILDFLAG(ENABLE_NACL) && !BUILDFLAG(IS_LINUX) && \

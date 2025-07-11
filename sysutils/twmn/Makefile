@@ -1,9 +1,9 @@
 PORTNAME=	twmn
 PORTVERSION=	g20190917
-PORTREVISION=	8
+PORTREVISION=	9
 CATEGORIES=	sysutils
 
-MAINTAINER=	dmgk@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Notification system for tiling window managers
 WWW=		https://github.com/sboli/twmn
 

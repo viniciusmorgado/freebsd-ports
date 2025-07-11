@@ -1,6 +1,7 @@
 PORTNAME=	ringrtc
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.50.2
+DISTVERSION=	2.53.0
+PORTREVISION=	1
 CATEGORIES=	multimedia
 MASTER_SITES=	LOCAL/mikael/ringrtc/:base \
 		LOCAL/mikael/ringrtc/:boringssl \
@@ -64,32 +65,32 @@ GH_TUPLE=	signalapp:ringrtc:${DISTVERSIONPREFIX}${DISTVERSION} \
 		signalapp:webrtc:${WEBRTC_REV}:webrtc
 
 # sh net-im/signal-desktop/get_deps.sh
-WEBRTC_REV=	6834f
+WEBRTC_REV=	7103d
 
 # modify webrtc_fetch.sh, then sh webrtc_fetch.sh
-BASE_REV=		69f3676cdbd05660c136a6cc3b23383cbabe53d8
-BORINGSSL_REV=		0fa9014d861f024e28fb491ed7b1cfd44103dee7
-BUILD_REV=		05874e6c9429039f1747034af61de1fe2ea1ed06
-BUILDTOOLS_REV=		db0eae9640184fb132061f248f6108771a6ea2d4
-CATAPULT_REV=		44791916611acec1cd74c492c7453e46d9b0dbd2
-ICU_REV=		4239b1559d11d4fa66c100543eda4161e060311e
-LIBCUBEB_VER=		0.22.0
-LIBJPEG_TURBO_REV=	927aabfcd26897abb9776ecf2a6c38ea5bb52ab6
-LIBSRTP_REV=		000edd791434c8738455f10e0dd6b268a4852c0b
-LIBVPX_REV=		906334ac1de2b0afa666472dce5545b82c1251fb
-LIBYUV_REV=		a8e59d207483f75b87dd5fc670e937672cdf5776
-NASM_REV=		f477acb1049f5e043904b87b825c5915084a9a29
+BASE_REV=		1d80e43078965dbe6ded5521fbffb128f59124a6
+BORINGSSL_REV=		a9993612faac4866bc33ca8ff37bfd0659af1c48
+BUILD_REV=		52d62707eaec02b88722a99e335315d166ceda77
+BUILDTOOLS_REV=		6f359296daa889aa726f3d05046b9f37be241169
+CATAPULT_REV=		5bda0fdab9d93ec9963e2cd858c7b49ad7fec7d4
+ICU_REV=		c9fb4b3a6fb54aa8c20a03bbcaa0a4a985ffd34b
+LIBCUBEB_VER=		0.27.0
+LIBJPEG_TURBO_REV=	e14cbfaa85529d47f9f55b0f104a579c1061f9ad
+LIBSRTP_REV=		a52756acb1c5e133089c798736dd171567df11f5
+LIBVPX_REV=		027bbee30a0103b99d86327b48d29567fed11688
+LIBYUV_REV=		ccdf870348764e4b77fa3b56accb2a896a901bad
+NASM_REV=		767a169c8811b090df222a458b25dfa137fc637e
 OPUS_REV=		0e30966b198ad28943799eaf5b3b08100b6f70c3
-PERFETTO_REV=		e57316a6ae4e85e9bc8ba82a6c6a93eb5d9a72aa
-PROTOBUFJS_REV=		e34549db516f8712f678fcd4bc411613b5cc5295
-RE2_REV=		6dcd83d60f7944926bfd308cc13979fc53dd69ca
-TESTING_REV=		eac4c18f749488d7232af275405e0e1b67d84cb3
-THIRD_PARTY_REV=	9d80a193fbfe8e2f2a29be2efeee93de9a826dcb
-TOOLS_REV=		c809c4133185094fbd75508202221ff14fc92f7c
+PERFETTO_REV=		40b529923598b739b2892a536a7692eedbed5685
+PROTOBUFJS_REV=		eb785a9363664a402b6336dfe96aad27fb33ffa8
+RE2_REV=		c84a140c93352cdabbfb547c531be34515b12228
+TESTING_REV=		f46b86c7f1fc7a7f52e61c11dbd0573a48cf7a6a
+THIRD_PARTY_REV=	10064104c1f11074312018c3a9c4b66f25584bdd
+TOOLS_REV=		3460fbcdee33353d37800dad5caa6bba327ad8c8
 
 BINARY_ALIAS=	vpython3=${PYTHON_CMD}
 
-# Keep in sync with https://github.com/signalapp/ringrtc/blob/v${DISTVERSION}/bin/build-electron#L119
+# Keep in sync with https://github.com/signalapp/ringrtc/blob/v2.53.0/bin/build-desktop#L130
 # Run "gn args out/release --list" for all variables.
 # Some parts don't have use_system_* flag, and can be turned on/off by using
 # replace_gn_files.py script, some parts just turned on/off for target host
@@ -127,9 +128,15 @@ CARGO_INSTALL=		no
 
 USE_LDCONFIG=	yes
 
-MAKE_ENV=	OUTPUT_DIR=${WEBRTCDIR}/out
+MAKE_ENV+=	OUTPUT_DIR=${WEBRTCDIR}/out
 
 PLIST_FILES=	lib/libringrtc.so
+
+RUSTC_VERSION!= rustc -V 2>/dev/null || true
+MAKE_ENV+=	RUSTC_BOOTSTRAP=1
+GN_ARGS+=	enable_rust=true \
+		rust_sysroot_absolute="${LOCALBASE}" \
+		rustc_version="${RUSTC_VERSION}"
 
 post-extract:
 	${MKDIR} ${WRKDIR}/${PORTNAME}-${DISTVERSION}/src/webrtc

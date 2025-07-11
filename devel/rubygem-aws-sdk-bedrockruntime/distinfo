@@ -1,3 +1,3 @@
-TIMESTAMP = 1742070534
-SHA256 (rubygem/aws-sdk-bedrockruntime-1.40.0.gem) = 46c8e5a53c117305db35cdd48cab277bab7df574d3707a91ddf853c7221fb582
-SIZE (rubygem/aws-sdk-bedrockruntime-1.40.0.gem) = 64000
+TIMESTAMP = 1751375083
+SHA256 (rubygem/aws-sdk-bedrockruntime-1.50.0.gem) = bf9ef7dccb4093307b4b1052ad615777eb5a8037db60bf07bcc84e0ab16ffe63
+SIZE (rubygem/aws-sdk-bedrockruntime-1.50.0.gem) = 80896

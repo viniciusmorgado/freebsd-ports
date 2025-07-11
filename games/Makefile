@@ -251,7 +251,6 @@
     SUBDIR += exhaust-doc
     SUBDIR += exhaust-ma
     SUBDIR += exult
-    SUBDIR += exult-devel
     SUBDIR += ezquake
     SUBDIR += f1spirit-remake
     SUBDIR += fairymax
@@ -377,7 +376,6 @@
     SUBDIR += gzdoom
     SUBDIR += hangman
     SUBDIR += hedgewars
-    SUBDIR += hedgewars-server
     SUBDIR += help_hannahs_horse
     SUBDIR += heretic
     SUBDIR += heroes
@@ -492,6 +490,7 @@
     SUBDIR += lgeneral
     SUBDIR += lgogdownloader
     SUBDIR += libgnome-games-support
+    SUBDIR += libgnome-games-support2
     SUBDIR += libkdegames
     SUBDIR += libkmahjongg
     SUBDIR += liblcf
@@ -947,7 +946,6 @@
     SUBDIR += stonesoup
     SUBDIR += stormbaancoureur
     SUBDIR += stratagus
-    SUBDIR += stuntrally
     SUBDIR += sudsol
     SUBDIR += sulis
     SUBDIR += supertux
@@ -1010,6 +1008,7 @@
     SUBDIR += twind
     SUBDIR += tycho
     SUBDIR += typespeed
+    SUBDIR += typtea
     SUBDIR += tyrian-data
     SUBDIR += ufoai
     SUBDIR += ufoai-data
@@ -1103,7 +1102,6 @@
     SUBDIR += xinvaders
     SUBDIR += xinvaders3d
     SUBDIR += xisola
-    SUBDIR += xjewel
     SUBDIR += xjig
     SUBDIR += xjump
     SUBDIR += xjumpx
@@ -1169,6 +1167,7 @@
     SUBDIR += xtron
     SUBDIR += xtruco
     SUBDIR += xtux
+    SUBDIR += xtxf
     SUBDIR += xvier
     SUBDIR += xworm
     SUBDIR += xye

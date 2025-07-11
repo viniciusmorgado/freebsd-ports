@@ -1,10 +1,10 @@
 PORTNAME=	arti
-DISTVERSION=	1.4.1
+DISTVERSION=	1.4.5
 CATEGORIES=	security
 
 MAINTAINER=	cs@FreeBSD.org
 COMMENT=	Implementation of Tor, in Rust
-WWW=		https://arti.torproject.org/
+WWW=		https://tpo.pages.torproject.net/core/arti/
 
 LICENSE=	MIT
 
@@ -14,7 +14,7 @@ LIB_DEPENDS=	libzstd.so:archivers/zstd
 
 FLAVORS=	default full
 full_PKGNAMESUFFIX=	-full
-USES=		cargo sqlite ssl
+USES=		cargo sqlite ssl llvm
 USE_RC_SUBR=	arti
 GROUPS=		_arti
 USERS=		_arti
@@ -23,7 +23,7 @@ PLIST_SUB=	USERS="${USERS}" GROUPS="${GROUPS}"
 USE_GITLAB=	yes
 GL_SITE=	https://gitlab.torproject.org
 GL_ACCOUNT=	tpo/core
-GL_TAGNAME=	590c6d748881807873d3e31d03b70938949e2d5c
+GL_TAGNAME=	aa7207f270f82b6d59cce26f4e49610b90447ebf
 CARGO_INSTALL=	no
 default_DESCR=	${.CURDIR}/pkg-descr
 full_DESCR=	${.CURDIR}/pkg-descr-full

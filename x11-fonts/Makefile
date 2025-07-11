@@ -126,8 +126,9 @@
     SUBDIR += genryu
     SUBDIR += genseki
     SUBDIR += gensen
+    SUBDIR += gentium
     SUBDIR += gentium-basic
-    SUBDIR += gentium-plus
+    SUBDIR += gentium-book
     SUBDIR += gentium-plus-compact
     SUBDIR += genwan
     SUBDIR += genyo
@@ -338,6 +339,7 @@
     SUBDIR += urwfonts
     SUBDIR += urwfonts-ttf
     SUBDIR += uw-ttyp0
+    SUBDIR += vazirmatn
     SUBDIR += victor-mono-ttf
     SUBDIR += vollkorn-ttf
     SUBDIR += webfonts

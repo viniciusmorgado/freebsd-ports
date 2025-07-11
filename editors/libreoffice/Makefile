@@ -1,4 +1,4 @@
-PORTREVISION=	0
+PORTREVISION=	1
 
 .include "${.CURDIR}/Makefile.common"
 
@@ -61,7 +61,7 @@ LIB_DEPENDS=	libapr-1.so:devel/apr1 \
 		libpagemaker-0.0.so:print/libpagemaker \
 		libassuan.so:security/libassuan \
 		libgpgme.so:security/gpgme \
-		libgpgmepp.so:security/gpgme-cpp \
+		libgpgmepp.so:security/gpgmepp \
 		libargon2.so:security/libargon2 \
 		libgpg-error.so:security/libgpg-error \
 		libnss3.so:security/nss \
@@ -119,8 +119,6 @@ NOT_FOR_ARCHS_REASON=	Unsupported host_cpu
 .if defined(PRERELEASE)
 MASTER_SITES+=	https://dev-builds.libreoffice.org/pre-releases/src/
 .endif
-
-CONFLICTS_INSTALL=	libreoffice6
 
 INSTALL_TARGET=	distro-pack-install
 
@@ -366,6 +364,11 @@ PIE_UNSAFE=	yes
 .include <bsd.port.options.mk>
 
 .include <bsd.port.pre.mk>
+
+.if ${OPSYS} == FreeBSD && ( \
+    (${OSVERSION} >= 1400051 && ${OSVERSION} < 1400057))
+BROKEN=	please update FreeBSD base system first to fix an ABI incompatibility
+.endif
 
 .if ${ARCH} == powerpc || ${ARCH} == powerpcspe || ${ARCH} == powerpc64
 CONFIGURE_ARGS+=	--disable-skia

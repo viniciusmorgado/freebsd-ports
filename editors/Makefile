@@ -41,6 +41,7 @@
     SUBDIR += emacs
     SUBDIR += emacs-devel
     SUBDIR += encryptpad
+    SUBDIR += enter-tex
     SUBDIR += featherpad
     SUBDIR += fileobj
     SUBDIR += flim
@@ -51,7 +52,6 @@
     SUBDIR += ghex
     SUBDIR += ghostwriter
     SUBDIR += gmanedit
-    SUBDIR += gnome-latex
     SUBDIR += gnome-text-editor
     SUBDIR += gobby
     SUBDIR += gomate
@@ -81,6 +81,7 @@
     SUBDIR += lapce
     SUBDIR += lazarus
     SUBDIR += lazarus-devel
+    SUBDIR += lazarus-gtk3-devel
     SUBDIR += lazarus-qt5
     SUBDIR += lazarus-qt5-devel
     SUBDIR += lazarus-qt6
@@ -204,6 +205,7 @@
     SUBDIR += mg
     SUBDIR += mickey
     SUBDIR += micro
+    SUBDIR += microsoft-edit
     SUBDIR += mined
     SUBDIR += mle
     SUBDIR += mousepad
@@ -257,7 +259,6 @@
     SUBDIR += sly-asdf
     SUBDIR += sly-named-readtables
     SUBDIR += sly-quicklisp
-    SUBDIR += ssed
     SUBDIR += sted
     SUBDIR += tamago
     SUBDIR += tea

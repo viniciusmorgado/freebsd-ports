@@ -1,7 +1,7 @@
 PORTNAME=	sq
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.36.0
-PORTREVISION=	7
+DISTVERSION=	1.3.1
+PORTREVISION=	2
 CATEGORIES=	security
 PKGNAMEPREFIX=	sequoia-
 
@@ -13,8 +13,7 @@ LICENSE=	LGPL20+
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 BUILD_DEPENDS=	capnp:devel/capnproto
-LIB_DEPENDS=	libnettle.so:security/nettle \
-		libgmp.so:math/gmp
+LIB_DEPENDS=	libnettle.so:security/nettle
 
 USES=	cargo llvm sqlite ssl
 

@@ -1,8 +1,9 @@
 PORTNAME=	rustscan
 PORTVERSION=	2.4.1
+PORTREVISION=	3
 CATEGORIES=	security
 
-MAINTAINER=	mikael@FreeBSD.org
+MAINTAINER=	bofh@FreeBSD.org
 COMMENT=	Faster Nmap Scanning with Rust
 WWW=		https://github.com/RustScan/RustScan
 

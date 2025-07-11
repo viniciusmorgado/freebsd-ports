@@ -1,6 +1,5 @@
 PORTNAME=	strawberry
-DISTVERSION=	1.2.7
-PORTREVISION=	1
+DISTVERSION=	1.2.11
 CATEGORIES=	audio
 MASTER_SITES=	https://github.com/strawberrymusicplayer/${PORTNAME}/releases/download/${DISTVERSION}/
 
@@ -11,9 +10,13 @@ WWW=		https://www.strawberrymusicplayer.org/
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	boost-libs>0:devel/boost-libs
+BUILD_DEPENDS=	boost-libs>0:devel/boost-libs \
+		rapidjson>0:devel/rapidjson \
+		sparsehash>0:devel/sparsehash
 LIB_DEPENDS=	libicui18n.so:devel/icu \
-		libtag.so:audio/taglib
+		libkdsingleapplication-qt6.so:devel/kdsingleapplication \
+		libtag.so:audio/taglib \
+		libxkbcommon.so:x11/libxkbcommon
 TEST_DEPENDS=	googletest>=0:devel/googletest
 
 USES=		cmake:testing compiler:c++17-lang desktop-file-utils \

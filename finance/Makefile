@@ -36,6 +36,7 @@
     SUBDIR += gnucash-docs
     SUBDIR += grisbi
     SUBDIR += homebank
+    SUBDIR += homebox
     SUBDIR += hs-hledger
     SUBDIR += hs-hledger-ui
     SUBDIR += hs-hledger-web
@@ -44,6 +45,7 @@
     SUBDIR += kmymoney
     SUBDIR += kraft
     SUBDIR += ktoblzcheck
+    SUBDIR += ktoblzcheck-data
     SUBDIR += ledger
     SUBDIR += ledgersmb12
     SUBDIR += libbtc
@@ -54,6 +56,9 @@
     SUBDIR += moneymanagerex
     SUBDIR += myphpmoney
     SUBDIR += nextcloud-cospend
+    SUBDIR += odoo
+    SUBDIR += odoo16
+    SUBDIR += odoo17
     SUBDIR += ord
     SUBDIR += p5-Business-CreditCard
     SUBDIR += p5-Business-MaxMind-CreditCardFraudDetection

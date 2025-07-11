@@ -1,9 +1,9 @@
 PORTNAME=	hyprutils
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.5.2
+DISTVERSION=	0.7.1
 CATEGORIES=	devel
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Hyprland utilities library used across the ecosystem
 WWW=		https://github.com/hyprwm/hyprutils
 

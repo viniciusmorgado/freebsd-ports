@@ -1,4 +1,4 @@
---- chrome/browser/ui/tabs/features.cc.orig	2025-03-05 08:14:56 UTC
+--- chrome/browser/ui/tabs/features.cc.orig	2025-07-02 06:08:04 UTC
 +++ chrome/browser/ui/tabs/features.cc
 @@ -53,7 +53,7 @@ bool CanShowTabSearchPositionSetting() {
    }

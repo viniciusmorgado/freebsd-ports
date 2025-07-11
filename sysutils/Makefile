@@ -75,6 +75,7 @@
     SUBDIR += autojump
     SUBDIR += automounter
     SUBDIR += autorestic
+    SUBDIR += awslim
     SUBDIR += azure-agent
     SUBDIR += b2sum
     SUBDIR += b3sum
@@ -186,11 +187,13 @@
     SUBDIR += cfengine-masterfiles323
     SUBDIR += cfengine-masterfiles324
     SUBDIR += cfengine-masterfiles325
+    SUBDIR += cfengine-masterfiles326
     SUBDIR += cfengine321
     SUBDIR += cfengine322
     SUBDIR += cfengine323
     SUBDIR += cfengine324
     SUBDIR += cfengine325
+    SUBDIR += cfengine326
     SUBDIR += chaoskube
     SUBDIR += checkrestart
     SUBDIR += chezmoi
@@ -263,7 +266,6 @@
     SUBDIR += daemonize
     SUBDIR += daemontools
     SUBDIR += daemontools-encore
-    SUBDIR += daggy
     SUBDIR += damager
     SUBDIR += dar
     SUBDIR += data-prepper
@@ -370,7 +372,6 @@
     SUBDIR += f-upgrade
     SUBDIR += f2
     SUBDIR += f3
-    SUBDIR += facter
     SUBDIR += fakertc
     SUBDIR += faketty
     SUBDIR += fand
@@ -461,6 +462,7 @@
     SUBDIR += gnome-settings-daemon
     SUBDIR += gnome-system-monitor
     SUBDIR += gnome_subr
+    SUBDIR += go-ntfy
     SUBDIR += go-wtf
     SUBDIR += goaccess
     SUBDIR += goawk
@@ -551,6 +553,7 @@
     SUBDIR += jail_exporter
     SUBDIR += jailadmin
     SUBDIR += jaildaemon
+    SUBDIR += jailmanager
     SUBDIR += jailme
     SUBDIR += jailrc
     SUBDIR += jailutils
@@ -693,7 +696,6 @@
     SUBDIR += mcelog
     SUBDIR += mcfly
     SUBDIR += mcron
-    SUBDIR += mcweject
     SUBDIR += mdcat
     SUBDIR += mdf2iso
     SUBDIR += megacli
@@ -716,6 +718,7 @@
     SUBDIR += mkfwimage
     SUBDIR += mkjail
     SUBDIR += mkntpwd
+    SUBDIR += mkr
     SUBDIR += mmc-utils
     SUBDIR += mmve
     SUBDIR += modman
@@ -762,6 +765,7 @@
     SUBDIR += nmrpflash
     SUBDIR += node_exporter
     SUBDIR += nomad
+    SUBDIR += nomad-driver-podman
     SUBDIR += nomad-pot-driver
     SUBDIR += npadmin
     SUBDIR += npmount
@@ -924,6 +928,7 @@
     SUBDIR += perp
     SUBDIR += personality
     SUBDIR += pfetch
+    SUBDIR += pfetch-rs
     SUBDIR += pflogx
     SUBDIR += pfstat
     SUBDIR += pftables
@@ -936,15 +941,17 @@
     SUBDIR += php83-posix
     SUBDIR += php84-fileinfo
     SUBDIR += php84-posix
+    SUBDIR += php85-fileinfo
+    SUBDIR += php85-posix
     SUBDIR += phybs
     SUBDIR += pick
     SUBDIR += pidof
     SUBDIR += pies
+    SUBDIR += pipeform
     SUBDIR += pipemeter
     SUBDIR += plasma-pass
     SUBDIR += plasma5-libksysguard
     SUBDIR += plasma6-discover
-    SUBDIR += plasma6-drkonqi
     SUBDIR += plasma6-kde-cli-tools
     SUBDIR += plasma6-kinfocenter
     SUBDIR += plasma6-kmenuedit
@@ -965,6 +972,7 @@
     SUBDIR += polkit
     SUBDIR += polkit-gnome
     SUBDIR += polkit-qt-1
+    SUBDIR += pollinfo
     SUBDIR += popeye
     SUBDIR += porch
     SUBDIR += pot
@@ -986,9 +994,7 @@
     SUBDIR += pstree
     SUBDIR += puppet-lint
     SUBDIR += puppet-mode.el
-    SUBDIR += puppet7
     SUBDIR += puppet8
-    SUBDIR += puppetserver7
     SUBDIR += puppetserver8
     SUBDIR += pv
     SUBDIR += pwd_unmkdb
@@ -996,7 +1002,6 @@
     SUBDIR += pwol
     SUBDIR += pwsafe
     SUBDIR += pxattr
-    SUBDIR += pxp-agent
     SUBDIR += py-ansible-compat
     SUBDIR += py-ansible-core
     SUBDIR += py-ansible-lint
@@ -1028,8 +1033,10 @@
     SUBDIR += py-filelock
     SUBDIR += py-focker
     SUBDIR += py-glances
+    SUBDIR += py-google-compute-engine
     SUBDIR += py-hared
     SUBDIR += py-hcloud
+    SUBDIR += py-healthchecks
     SUBDIR += py-honcho
     SUBDIR += py-howdoi
     SUBDIR += py-hpilo
@@ -1042,6 +1049,7 @@
     SUBDIR += py-mitogen
     SUBDIR += py-mqttwarn
     SUBDIR += py-nagiosplugin
+    SUBDIR += py-overlord
     SUBDIR += py-packet-python
     SUBDIR += py-pkginfo
     SUBDIR += py-ploy
@@ -1072,11 +1080,6 @@
     SUBDIR += py-tarsnapper
     SUBDIR += py-tldr
     SUBDIR += py-tmuxp
-    SUBDIR += py-upt
-    SUBDIR += py-upt-cpan
-    SUBDIR += py-upt-freebsd
-    SUBDIR += py-upt-pypi
-    SUBDIR += py-upt-rubygems
     SUBDIR += py-uptime
     SUBDIR += qchroot
     SUBDIR += qdirstat
@@ -1123,6 +1126,7 @@
     SUBDIR += rhc
     SUBDIR += rinse
     SUBDIR += rkbin
+    SUBDIR += rldd
     SUBDIR += rmlint
     SUBDIR += rocinante
     SUBDIR += rocr
@@ -1136,6 +1140,7 @@
     SUBDIR += rsyncbackup
     SUBDIR += rsyncrypto
     SUBDIR += rsyslog8
+    SUBDIR += rtkit-unix
     SUBDIR += rtty
     SUBDIR += rubygem-backup
     SUBDIR += rubygem-bolt
@@ -1261,8 +1266,6 @@
     SUBDIR += schilyutils
     SUBDIR += screen
     SUBDIR += screen-devel
-    SUBDIR += screen49
-    SUBDIR += screen50
     SUBDIR += screenfetch
     SUBDIR += screenie
     SUBDIR += scterc
@@ -1289,7 +1292,6 @@
     SUBDIR += skopeo
     SUBDIR += slack
     SUBDIR += sleuthkit
-    SUBDIR += slst
     SUBDIR += slurm-wlm
     SUBDIR += smart
     SUBDIR += smartmontools
@@ -1333,6 +1335,7 @@
     SUBDIR += syngesture
     SUBDIR += sysctlbyname-improved-kmod
     SUBDIR += sysctlinfo-kmod
+    SUBDIR += sysctltui
     SUBDIR += sysgather
     SUBDIR += sysinfo
     SUBDIR += syslinux
@@ -1370,6 +1373,7 @@
     SUBDIR += tiramisu
     SUBDIR += titlefix
     SUBDIR += tkdvd
+    SUBDIR += tldr
     SUBDIR += tlsdate
     SUBDIR += tm
     SUBDIR += tmate
@@ -1386,6 +1390,7 @@
     SUBDIR += touchegg
     SUBDIR += toybox
     SUBDIR += tree
+    SUBDIR += treetop
     SUBDIR += triton
     SUBDIR += trueos-libqt5
     SUBDIR += ts
@@ -1423,6 +1428,7 @@
     SUBDIR += u-boot-nanopi-r2s
     SUBDIR += u-boot-nanopi-r4s
     SUBDIR += u-boot-nanopi-r5s
+    SUBDIR += u-boot-nanopi-r6s
     SUBDIR += u-boot-olimex-a20-som-evb
     SUBDIR += u-boot-olinuxino-lime
     SUBDIR += u-boot-olinuxino-lime2
@@ -1435,7 +1441,6 @@
     SUBDIR += u-boot-orangepi-r1
     SUBDIR += u-boot-orangepi-zero
     SUBDIR += u-boot-orangepi-zero-plus
-    SUBDIR += u-boot-pandaboard
     SUBDIR += u-boot-pcduino3
     SUBDIR += u-boot-pine-h64
     SUBDIR += u-boot-pine64
@@ -1447,6 +1452,7 @@
     SUBDIR += u-boot-qemu-riscv64
     SUBDIR += u-boot-quartz64-a
     SUBDIR += u-boot-quartz64-b
+    SUBDIR += u-boot-radxa-zero3
     SUBDIR += u-boot-riotboard
     SUBDIR += u-boot-rock-pi-4
     SUBDIR += u-boot-rock64
@@ -1548,7 +1554,6 @@
     SUBDIR += wmupmon
     SUBDIR += worldtools
     SUBDIR += wuzzah
-    SUBDIR += x86info
     SUBDIR += xbatt
     SUBDIR += xbattbar
     SUBDIR += xcdroast

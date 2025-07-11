@@ -393,6 +393,7 @@
     SUBDIR += gsl
     SUBDIR += half
     SUBDIR += hexcalc
+    SUBDIR += hexowl
     SUBDIR += heyoka
     SUBDIR += highs
     SUBDIR += hmat-oss
@@ -471,7 +472,6 @@
     SUBDIR += librdata
     SUBDIR += librsb
     SUBDIR += libsemigroups
-    SUBDIR += libsharp2
     SUBDIR += libtexprintf
     SUBDIR += libtommath
     SUBDIR += libxls
@@ -500,7 +500,6 @@
     SUBDIR += mathomatic
     SUBDIR += mathpresso
     SUBDIR += matio
-    SUBDIR += matlab-installer
     SUBDIR += maxima
     SUBDIR += mbasecalc
     SUBDIR += mcsim
@@ -569,10 +568,12 @@
     SUBDIR += octave-forge-coder
     SUBDIR += octave-forge-communications
     SUBDIR += octave-forge-control
+    SUBDIR += octave-forge-csg-dataset
     SUBDIR += octave-forge-csg-toolkit
     SUBDIR += octave-forge-data-smoothing
     SUBDIR += octave-forge-database
     SUBDIR += octave-forge-dataframe
+    SUBDIR += octave-forge-datatypes
     SUBDIR += octave-forge-dicom
     SUBDIR += octave-forge-divand
     SUBDIR += octave-forge-doctest
@@ -583,6 +584,7 @@
     SUBDIR += octave-forge-fileio
     SUBDIR += octave-forge-financial
     SUBDIR += octave-forge-fits
+    SUBDIR += octave-forge-fl-core
     SUBDIR += octave-forge-fpl
     SUBDIR += octave-forge-fuzzy-logic-toolkit
     SUBDIR += octave-forge-ga
@@ -624,6 +626,7 @@
     SUBDIR += octave-forge-nurbs
     SUBDIR += octave-forge-oct2mat
     SUBDIR += octave-forge-octave-pool
+    SUBDIR += octave-forge-octave_php_wrapper
     SUBDIR += octave-forge-octave_tar
     SUBDIR += octave-forge-octave_zstd
     SUBDIR += octave-forge-octclip
@@ -872,6 +875,7 @@
     SUBDIR += pari_nftables
     SUBDIR += pari_seadata
     SUBDIR += paritwine
+    SUBDIR += parmetis
     SUBDIR += parmgridgen
     SUBDIR += pcalc
     SUBDIR += pdal
@@ -891,6 +895,8 @@
     SUBDIR += php83-gmp
     SUBDIR += php84-bcmath
     SUBDIR += php84-gmp
+    SUBDIR += php85-bcmath
+    SUBDIR += php85-gmp
     SUBDIR += physcalc
     SUBDIR += picosat
     SUBDIR += piranha
@@ -970,12 +976,12 @@
     SUBDIR += py-evalidate
     SUBDIR += py-faiss
     SUBDIR += py-fastcluster
-    SUBDIR += py-fastdtw
     SUBDIR += py-fenics-basix
     SUBDIR += py-fenics-ffcx
     SUBDIR += py-fenics-ufl
     SUBDIR += py-flax
     SUBDIR += py-formulaic
+    SUBDIR += py-formulaic-contrasts
     SUBDIR += py-fpylll
     SUBDIR += py-fraction
     SUBDIR += py-fsph
@@ -983,7 +989,6 @@
     SUBDIR += py-gau2grid
     SUBDIR += py-gimmik
     SUBDIR += py-gmpy2
-    SUBDIR += py-grandalf
     SUBDIR += py-graphillion
     SUBDIR += py-gym
     SUBDIR += py-gym-notices
@@ -1048,6 +1053,7 @@
     SUBDIR += py-pandas
     SUBDIR += py-pandas-datareader
     SUBDIR += py-patsy
+    SUBDIR += py-pcodec
     SUBDIR += py-pdal
     SUBDIR += py-permutation
     SUBDIR += py-petsc4py
@@ -1056,6 +1062,7 @@
     SUBDIR += py-pplpy
     SUBDIR += py-primecountpy
     SUBDIR += py-primme
+    SUBDIR += py-pwlf
     SUBDIR += py-py-find-1st
     SUBDIR += py-pyFFTW
     SUBDIR += py-pyaudi
@@ -1076,6 +1083,7 @@
     SUBDIR += py-pyprobables
     SUBDIR += py-pyreadr
     SUBDIR += py-pyreadstat
+    SUBDIR += py-pyrfr
     SUBDIR += py-pyrr
     SUBDIR += py-pysmt
     SUBDIR += py-pysym
@@ -1114,7 +1122,6 @@
     SUBDIR += py-spopt
     SUBDIR += py-spot
     SUBDIR += py-spreg
-    SUBDIR += py-spvcm
     SUBDIR += py-squarify
     SUBDIR += py-ssm
     SUBDIR += py-statsmodels
@@ -1129,6 +1136,7 @@
     SUBDIR += py-umap-learn
     SUBDIR += py-uncertainties
     SUBDIR += py-unyt
+    SUBDIR += py-vector
     SUBDIR += py-vincenty
     SUBDIR += py-yt
     SUBDIR += py-z3-solver

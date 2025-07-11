@@ -1,8 +1,8 @@
---- chrome/browser/browser_features.h.orig	2025-03-05 08:14:56 UTC
+--- chrome/browser/browser_features.h.orig	2025-07-02 06:08:04 UTC
 +++ chrome/browser/browser_features.h
-@@ -39,7 +39,7 @@ BASE_DECLARE_FEATURE(kCertVerificationNetworkTime);
- 
- BASE_DECLARE_FEATURE(kContentUsesBrowserThemeColorMode);
+@@ -38,7 +38,7 @@ BASE_DECLARE_FEATURE(kCertificateTransparencyAskBefore
+ BASE_DECLARE_FEATURE(kCertVerificationNetworkTime);
+ BASE_DECLARE_FEATURE(kClearUserDataUponProfileDestruction);
  
 -#if BUILDFLAG(IS_LINUX)
 +#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)

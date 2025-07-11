@@ -1,5 +1,6 @@
 PORTNAME=	qgis
-DISTVERSION=	3.40.5
+DISTVERSION=	3.40.8
+PORTREVISION=	1
 CATEGORIES=	graphics geography
 MASTER_SITES=	https://qgis.org/downloads/
 PKGNAMESUFFIX=	-ltr
@@ -67,7 +68,7 @@ RUN_DEPENDS=	astyle:devel/astyle \
 		${PYTHON_PKGNAMEPREFIX}black>=22.10:devel/py-black@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}cycler>=0.11.0:devel/py-cycler@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}python-dateutil>=2.8.2:devel/py-python-dateutil@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}Fiona>=1.8.21:graphics/py-fiona@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}fiona>=1.8.21:graphics/py-fiona@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}future>=0.18.2:devel/py-future@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}gdal>=3.5.2:graphics/py-gdal@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}geojson>=2.3.0:devel/py-geojson@${PY_FLAVOR} \
@@ -138,9 +139,6 @@ CMAKE_ON=	USE_OPENCL WITH_3D WITH_ASTYLE WITH_BINDINGS WITH_COPC \
 		WITH_CUSTOM_WIDGETS WITH_DRACO WITH_EPT WITH_INTERNAL_LAZPERF \
 		WITH_POSTGRESQL WITH_QTWEBENGINE
 CMAKE_OFF=	ENABLE_TESTS USE_CCACHE WITH_INTERNAL_MDAL WITH_QTWEBKIT WITH_QWTPOLAR
-
-# math/pdal fails in pdal_wrench() with "undefined reference to symbol 'pthread_create@@FBSD_1.0'"
-#CXXFLAGS+=	-pthread
 
 CONFLICTS_INSTALL=	qgis
 

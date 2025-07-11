@@ -1,6 +1,7 @@
 PORTNAME=	electron
 DISTVERSIONPREFIX=	v
 DISTVERSION=	${ELECTRON_VER}
+PORTREVISION=	3
 PULSEMV=	16
 PULSEV=		${PULSEMV}.1
 CATEGORIES=	devel
@@ -221,7 +222,7 @@ SNDIO_VARS_OFF=		GN_ARGS+=use_sndio=false
 # See ${WRKSRC}/electron/DEPS for CHROMIUM_VER
 CHROMIUM_VER=			132.0.6834.210
 # See ${WRKSRC}/electron/DEPS for NODE_VER
-NODE_VER=			20.18.3
+NODE_VER=			20.19.1
 # See ${WRKSRC}/electron/DEPS for NAN_VER
 NAN_VER=			e14bdcd1f72d62bca1d541b66da43130384ec213
 # See ${WRKSRC}/electron/DEPS for SQUIRREL_MAC_VER
@@ -242,7 +243,7 @@ YARN_TIMESTAMP=	61171200
 IGNORE=		you have selected HEIMDAL_BASE but do not have Heimdal installed in base
 .endif
 
-LLVM_DEFAULT=		19
+LLVM_DEFAULT=		20
 BUILD_DEPENDS+=		clang${LLVM_DEFAULT}:devel/llvm${LLVM_DEFAULT}
 BINARY_ALIAS+=		cpp=${LOCALBASE}/bin/clang-cpp${LLVM_DEFAULT} \
 			cc=${LOCALBASE}/bin/clang${LLVM_DEFAULT} \

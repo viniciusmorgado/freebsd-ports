@@ -1,9 +1,9 @@
 PORTNAME=	hyprpicker
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.4.3
+DISTVERSION=	0.4.5
 CATEGORIES=	x11 wayland
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Color picker and magnifier for Wayland
 WWW=		https://github.com/hyprwm/hyprpicker
 

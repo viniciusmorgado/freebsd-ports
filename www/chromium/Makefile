@@ -1,5 +1,5 @@
 PORTNAME=	chromium
-PORTVERSION=	134.0.6998.165
+PORTVERSION=	138.0.7204.96
 PORTREVISION=	1
 PULSEMV=	16
 PULSEV=		${PULSEMV}.1
@@ -17,7 +17,7 @@ WWW=		https://www.chromium.org/Home
 LICENSE=	BSD3CLAUSE LGPL21 MPL11
 LICENSE_COMB=	multi
 
-ONLY_FOR_ARCHS=	aarch64 amd64 i386
+ONLY_FOR_ARCHS=	aarch64 amd64
 
 BUILD_DEPENDS=	bash:shells/bash \
 		${PYTHON_PKGNAMEPREFIX}Jinja2>0:devel/py-Jinja2@${PY_FLAVOR} \
@@ -92,8 +92,7 @@ SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper #buildtools/linux64/clang
 MAKE_ARGS=	-C out/${BUILDTYPE}
 ALL_TARGET=	chrome
 
-BINARY_ALIAS=	python3=${PYTHON_CMD} \
-		moc=${PREFIX}/bin/moc-qt5
+BINARY_ALIAS=	python3=${PYTHON_CMD}
 
 # TODO bz@ : install libwidevinecdm.so (see third_party/widevine/cdm/BUILD.gn)
 #
@@ -110,6 +109,7 @@ GN_ARGS+=	clang_use_chrome_plugins=false \
 		fatal_linker_warnings=false \
 		icu_use_data_file=false \
 		is_clang=true \
+		moc_qt5_path="${QT_TOOLDIR}/moc" \
 		optimize_webui=true \
 		toolkit_views=true \
 		treat_warnings_as_errors=false \
@@ -120,6 +120,7 @@ GN_ARGS+=	clang_use_chrome_plugins=false \
 		use_lld=true \
 		use_partition_alloc=true \
 		use_partition_alloc_as_malloc=false \
+		use_qt5=true \
 		use_sysroot=false \
 		use_system_freetype=false \
 		use_system_harfbuzz=true \
@@ -178,13 +179,15 @@ DEBUG_VARS=		BUILDTYPE=Debug \
 			GN_ARGS+=is_component_build=false \
 			GN_ARGS+=symbol_level=1 \
 			GN_BOOTSTRAP_FLAGS+=--debug \
-			WANTSPACE="21 GB"
+			WANTSPACE="60 GB" \
+			WANTMEM="32 GB"
 DEBUG_VARS_OFF=		BUILDTYPE=Release \
 			GN_ARGS+=blink_symbol_level=0 \
 			GN_ARGS+=is_debug=false \
 			GN_ARGS+=is_official_build=true \
 			GN_ARGS+=symbol_level=0 \
-			WANTSPACE="14 GB"
+			WANTSPACE="35 GB" \
+			WANTMEM="8 GB"
 
 DRIVER_MAKE_ARGS=	chromedriver
 
@@ -194,7 +197,8 @@ KERBEROS_VARS_OFF=	GN_ARGS+=use_kerberos=false
 
 LTO_VARS=		GN_ARGS+=use_thin_lto=true \
 			GN_ARGS+=thin_lto_enable_optimizations=true \
-			WANTSPACE="14 GB"
+			WANTSPACE="40 GB" \
+			WANTMEM="16 GB"
 LTO_VARS_OFF=		GN_ARGS+=use_thin_lto=false
 
 MIT_LIB_DEPENDS=	libkrb.so.3:security/krb5
@@ -272,8 +276,10 @@ GN_ARGS+=	enable_rust=true \
 
 pre-everything::
 	@${ECHO_MSG}
-	@${ECHO_MSG} "To build Chromium, you should have around 2GB of memory"
-	@${ECHO_MSG} "and around ${WANTSPACE} of free disk space."
+	@${ECHO_MSG} "To build ${PORTNAME}, you should have at least:"
+	@${ECHO_MSG} "- ${WANTMEM} of memory"
+	@${ECHO_MSG} "- ${WANTSPACE} of free disk space"
+	@${ECHO_MSG} "- 1.5 million free inodes"
 	@${ECHO_MSG}
 
 pre-configure:

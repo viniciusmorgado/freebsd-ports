@@ -1,6 +1,7 @@
 PORTNAME=	schemesh
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.8.0
+DISTVERSION=	0.9.1
+PORTREVISION=	1
 CATEGORIES=	shells
 
 MAINTAINER=	ashish@FreeBSD.org
@@ -13,7 +14,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	chez-scheme:lang/chez-scheme
 RUN_DEPENDS=	chez-scheme:lang/chez-scheme
 LIB_DEPENDS=	liblz4.so:archivers/liblz4 \
-		libuuid.so:misc/e2fsprogs-libuuid
+		libuuid.so:misc/libuuid
 
 USES=		gmake ncurses
 
@@ -24,6 +25,7 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 USE_LDCONFIG=	yes
 
 PLIST_FILES=	bin/schemesh \
+		bin/countdown \
 		lib/schemesh/libschemesh_${DISTVERSION}.so
 
 post-patch:

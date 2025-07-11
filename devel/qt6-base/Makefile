@@ -1,13 +1,13 @@
 PORTNAME=	base
 DISTVERSION=	${QT6_VERSION}
+PORTREVISION=	2
 CATEGORIES=	devel
 PKGNAMEPREFIX=	qt6-
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Qt base (core, gui, widgets, network,...)
 
-BUILD_DEPENDS=	xml:textproc/xmlstarlet \
-		${LOCALBASE}/include/vulkan/vulkan.h:graphics/vulkan-headers \
+BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:graphics/vulkan-headers \
 		${LOCALBASE}/include/linux/input.h:devel/evdev-proto
 LIB_DEPENDS=	libatk-1.0.so:accessibility/at-spi2-core \
 		libatk-bridge-2.0.so:accessibility/at-spi2-core \
@@ -94,6 +94,13 @@ PLIST_SUB+=	DTLS=""
 .if ${ARCH} == "armv6" || ${ARCH} == "armv7"
 BUILD_DEPENDS+=	as:devel/binutils
 CMAKE_ARGS+=	-DCMAKE_ASM_FLAGS=-no-integrated-as
+.endif
+
+.if exists(/usr/include/sys/inotify.h)
+PLIST_SUB+=	INOTIFY="" KQUEUE="@comment "
+EXTRA_PATCHES+=	${FILESDIR}/extrapatch-inotify
+.else
+PLIST_SUB+=	INOTIFY="@comment " KQUEUE=""
 .endif
 
 post-patch:

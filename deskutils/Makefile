@@ -65,7 +65,6 @@
     SUBDIR += fyi
     SUBDIR += ganttproject
     SUBDIR += gcal
-    SUBDIR += gcalcli
     SUBDIR += genius
     SUBDIR += glabels
     SUBDIR += gnome-calendar
@@ -87,6 +86,7 @@
     SUBDIR += gnome-shell-extension-filesmenu
     SUBDIR += gnome-shell-extension-hidetopbar
     SUBDIR += gnome-shell-extension-lockkeys
+    SUBDIR += gnome-shell-extension-manager
     SUBDIR += gnome-shell-extension-mediaplayer
     SUBDIR += gnome-shell-extension-openweather
     SUBDIR += gnome-shell-extension-panel-osd
@@ -230,7 +230,6 @@
     SUBDIR += py-calendar_cli
     SUBDIR += py-i3-gnome-pomodoro
     SUBDIR += py-khal
-    SUBDIR += py-khard
     SUBDIR += py-paperless
     SUBDIR += py-paperless-ngx
     SUBDIR += py-py3status
@@ -238,7 +237,6 @@
     SUBDIR += py-send2trash
     SUBDIR += py-taskw
     SUBDIR += py-term-background
-    SUBDIR += py-todoman
     SUBDIR += py-trash-cli
     SUBDIR += py-vdirsyncer
     SUBDIR += py-vobject
@@ -264,6 +262,7 @@
     SUBDIR += sowon
     SUBDIR += spacefm
     SUBDIR += spice-gtk
+    SUBDIR += stirling-pdf
     SUBDIR += subsurface
     SUBDIR += synapse
     SUBDIR += syncthingtray

@@ -1,5 +1,5 @@
 PORTNAME=	fakeredis
-PORTVERSION=	2.27.0
+PORTVERSION=	2.30.1
 CATEGORIES=	databases python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -12,7 +12,7 @@ LICENSE=	BSD3CLAUSE MIT
 LICENSE_COMB=	multi
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}poetry-core>=0:devel/py-poetry-core@${PY_FLAVOR}
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}hatchling>=0:devel/py-hatchling@${PY_FLAVOR}
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}redis>=4.3:databases/py-redis@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}sortedcontainers>=2<3:devel/py-sortedcontainers@${PY_FLAVOR}
 TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}jsonpath-ng>=1.5<2:devel/py-jsonpath-ng@${PY_FLAVOR} \
@@ -21,7 +21,7 @@ TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}jsonpath-ng>=1.5<2:devel/py-jsonpath-ng@${P
 		${PYTHON_PKGNAMEPREFIX}pytest-cov>=0:devel/py-pytest-cov@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pytest-mock>=0:devel/py-pytest-mock@${PY_FLAVOR}
 
-USES=		python:3.9+
+USES=		python
 USE_PYTHON=	autoplist concurrent pep517 pytest
 
 NO_ARCH=	yes

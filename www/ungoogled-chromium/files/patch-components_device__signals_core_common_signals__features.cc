@@ -1,7 +1,7 @@
---- components/device_signals/core/common/signals_features.cc.orig	2025-03-09 21:38:10 UTC
+--- components/device_signals/core/common/signals_features.cc.orig	2025-05-31 17:16:41 UTC
 +++ components/device_signals/core/common/signals_features.cc
-@@ -11,7 +11,7 @@ BASE_FEATURE(kAllowClientCertificateReportingForUsers,
-              base::FEATURE_ENABLED_BY_DEFAULT);
+@@ -43,7 +43,7 @@ bool IsBrowserSignalsReportingEnabled() {
+ }
  
  #if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || \
 -    BUILDFLAG(IS_CHROMEOS)

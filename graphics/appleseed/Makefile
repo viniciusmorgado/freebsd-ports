@@ -1,6 +1,6 @@
 PORTNAME=	appleseed
 DISTVERSION=	2.1.0-beta
-PORTREVISION=	18
+PORTREVISION=	19
 CATEGORIES=	graphics
 
 PATCH_SITES=	http://vault.101011010.xyz/distfiles/ LOCAL/danfe
@@ -57,7 +57,7 @@ OPTIONS_DEFAULT=	PYTHON STUDIO
 OPTIONS_SUB=	yes
 
 EMBREE_DESC=	Embree intersection backend support
-EMBREE_LIB_DEPENDS=	libembree3.so:graphics/embree
+EMBREE_LIB_DEPENDS=	libembree3.so:graphics/embree3
 EMBREE_CMAKE_ON=	-DWITH_EMBREE:BOOL=ON
 
 PYTHON_USES=	gl python:build,run

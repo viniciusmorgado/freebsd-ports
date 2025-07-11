@@ -61,7 +61,6 @@
     SUBDIR += libarchive
     SUBDIR += libarchive-qt
     SUBDIR += libcabinet
-    SUBDIR += libcomprex
     SUBDIR += libdeflate
     SUBDIR += libdynamite
     SUBDIR += liblz4
@@ -73,7 +72,6 @@
     SUBDIR += libzip
     SUBDIR += libzippp
     SUBDIR += linux-c7-lz4
-    SUBDIR += linux-rl9-brotli
     SUBDIR += linux-rl9-lz4
     SUBDIR += lizard
     SUBDIR += lrzip
@@ -177,6 +175,10 @@
     SUBDIR += php84-phar
     SUBDIR += php84-zip
     SUBDIR += php84-zlib
+    SUBDIR += php85-bz2
+    SUBDIR += php85-phar
+    SUBDIR += php85-zip
+    SUBDIR += php85-zlib
     SUBDIR += pigz
     SUBDIR += pixz
     SUBDIR += plakar
@@ -242,6 +244,7 @@
     SUBDIR += rubygem-minitar0
     SUBDIR += rubygem-ruby-xz
     SUBDIR += rubygem-rubyzip
+    SUBDIR += rubygem-rubyzip-gitlab
     SUBDIR += rubygem-rubyzip13
     SUBDIR += rubygem-rubyzip2
     SUBDIR += rubygem-snappy

@@ -1,10 +1,11 @@
 PORTNAME=	s3fs
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.95
+PORTREVISION=	1
 CATEGORIES=	filesystems
 PKGNAMEPREFIX=	fusefs-
 
-MAINTAINER=	dmgk@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	FUSE-based file system backed by Amazon S3
 WWW=		https://github.com/s3fs-fuse/s3fs-fuse
 

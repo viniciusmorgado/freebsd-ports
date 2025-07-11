@@ -1,10 +1,6 @@
 PORTNAME=	tg_owt
-PORTVERSION=	0.0.20241203
-PORTREVISION=	3
+PORTVERSION=	0.0.20250603
 CATEGORIES=	net-im
-
-PATCH_SITES=	https://github.com/desktop-app/tg_owt/commit/
-PATCHFILES=	4f7618d717335ec7e96ee665591aae87e8caf22d.patch:-p1
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Webrtc library used by telegram-desktop
@@ -26,12 +22,13 @@ LIB_DEPENDS=	libabsl_base.so:devel/abseil \
 		libsrtp2.so:net/libsrtp2 \
 		libvpx.so:multimedia/libvpx
 
-USES=		cmake gl pkgconfig xorg
+USES=		cmake gl gnome pkgconfig xorg
 USE_XORG=	x11 xcomposite xdamage xrender xrandr xtst
 USE_GL=		gbm gl
 USE_GITHUB=	yes
+USE_GNOME=	glib20
 GH_ACCOUNT=	desktop-app
-GH_TAGNAME=	be39b8c
+GH_TAGNAME=	62321fd
 
 CMAME_ON=	TG_OWT_PACKAGED_BUILD
 

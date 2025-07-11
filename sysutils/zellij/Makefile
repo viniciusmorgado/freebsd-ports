@@ -1,6 +1,7 @@
 PORTNAME=	zellij
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.42.1
+DISTVERSION=	0.42.2
+PORTREVISION=	2
 CATEGORIES=	sysutils
 
 MAINTAINER=	riggs@FreeBSD.org
@@ -10,7 +11,6 @@ WWW=		https://zellij.dev/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
-BROKEN_aarch64=	fails to build: required low level features only implemented for amd64
 ONLY_FOR_ARCHS=	aarch64 amd64
 ONLY_FOR_ARCHS_REASON=	wasmer-vm crate currently only supports aarch64 and amd64
 
@@ -123,7 +123,6 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		debugid-0.8.0 \
 		deltae-0.3.0 \
 		derivative-2.2.0 \
-		destructure_traitobject-0.2.0 \
 		dialoguer-0.10.4 \
 		digest-0.10.7 \
 		directories-5.0.1 \
@@ -161,10 +160,8 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		futures-0.3.28 \
 		futures-channel-0.3.28 \
 		futures-core-0.3.28 \
-		futures-executor-0.3.28 \
 		futures-io-0.3.28 \
 		futures-lite-1.13.0 \
-		futures-macro-0.3.28 \
 		futures-sink-0.3.28 \
 		futures-task-0.3.28 \
 		futures-util-0.3.28 \
@@ -206,7 +203,6 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		insta-1.14.0 \
 		instant-0.1.12 \
 		interprocess-1.2.1 \
-		intmap-0.7.1 \
 		inventory-0.2.3 \
 		io-extras-0.18.4 \
 		io-lifetimes-1.0.10 \
@@ -276,7 +272,6 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		openssl-src-300.1.6+3.1.4 \
 		openssl-sys-0.9.93 \
 		option-ext-0.2.0 \
-		ordered-float-2.10.0 \
 		ordered-float-4.2.0 \
 		os_str_bytes-6.1.0 \
 		owo-colors-3.4.0 \
@@ -346,7 +341,6 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		semver-1.0.17 \
 		semver-parser-0.10.2 \
 		serde-1.0.217 \
-		serde-value-0.7.0 \
 		serde_derive-1.0.217 \
 		serde_json-1.0.81 \
 		serde_spanned-0.6.6 \
@@ -368,7 +362,6 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		smawk-0.3.1 \
 		socket2-0.4.9 \
 		socket2-0.5.7 \
-		spinning-0.1.0 \
 		sptr-0.3.2 \
 		ssh2-0.9.3 \
 		stable_deref_trait-1.2.0 \
@@ -412,7 +405,6 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		tracing-core-0.1.27 \
 		tracing-futures-0.2.5 \
 		trait-variant-0.1.2 \
-		typemap-ors-1.0.0 \
 		typenum-1.15.0 \
 		typetag-0.1.8 \
 		typetag-impl-0.1.8 \
@@ -425,7 +417,6 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		unicode-width-0.1.10 \
 		unicode-width-0.2.0 \
 		unicode-xid-0.2.4 \
-		unsafe-any-ors-1.0.0 \
 		url-2.5.0 \
 		utf8parse-0.2.0 \
 		uuid-1.16.0 \
@@ -448,7 +439,7 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		wasm-bindgen-shared-0.2.87 \
 		wasm-encoder-0.221.2 \
 		wasm-encoder-0.224.0 \
-		wasmparser-0.221.2 \
+		wasmparser-0.221.3 \
 		wasmparser-0.224.0 \
 		wasmprinter-0.221.2 \
 		wasmtime-29.0.1 \
@@ -520,7 +511,7 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		winnow-0.6.8 \
 		winx-0.36.3 \
 		wit-bindgen-rt-0.33.0 \
-		wit-parser-0.221.2 \
+		wit-parser-0.221.3 \
 		witx-0.9.1 \
 		xflags-0.3.2 \
 		xflags-macros-0.3.2 \
@@ -531,7 +522,6 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		zerocopy-0.8.17 \
 		zerocopy-derive-0.7.34 \
 		zerocopy-derive-0.8.17 \
-		zeroize-1.5.5 \
 		zstd-0.13.1 \
 		zstd-safe-7.1.0 \
 		zstd-sys-2.0.10+zstd.1.5.6

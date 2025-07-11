@@ -11,8 +11,8 @@ LICENSE=	LGPL21
 LIB_DEPENDS=	libassuan.so:security/libassuan \
 		libgpg-error.so:security/libgpg-error \
 		libgpgme.so:security/gpgme \
-		libgpgmepp.so:security/gpgme-cpp \
-		libqgpgmeqt6.so:security/gpgme-qt@qt6 \
+		libgpgmepp.so:security/gpgmepp \
+		libqgpgmeqt6.so:security/qgpgme@qt6 \
 		libqt6keychain.so:security/qtkeychain@qt6
 
 RUN_DEPENDS=	accountwizard:deskutils/kmail-account-wizard \
@@ -28,7 +28,7 @@ USE_KDE=	auth bookmarks codecs completion config configwidgets \
 		itemmodels itemviews jobwidgets kcmutils kio notifications \
 		notifyconfig parts service solid sonnet statusnotifieritem \
 		syntaxhighlighting texteditor textwidgets unitconversion \
-		wallet widgetsaddons windowsystem xmlgui \
+		userfeedback wallet widgetsaddons windowsystem xmlgui \
 		ecm:build
 # pim components
 USE_KDE+=	akonadi akonadicontacts akonadimime akonadisearch calendarcore \

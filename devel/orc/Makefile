@@ -1,9 +1,9 @@
 PORTNAME=	orc
-DISTVERSION=	0.4.40
+DISTVERSION=	0.4.41
 CATEGORIES=	devel
 MASTER_SITES=	http://gstreamer.freedesktop.org/data/src/${PORTNAME}/
 
-MAINTAINER=	kwm@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Library and toolset to operate arrays of data
 WWW=		https://gstreamer.freedesktop.org/projects/orc.html
 

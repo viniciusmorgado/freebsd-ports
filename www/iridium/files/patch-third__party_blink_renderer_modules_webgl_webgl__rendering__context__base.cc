@@ -1,8 +1,8 @@
---- third_party/blink/renderer/modules/webgl/webgl_rendering_context_base.cc.orig	2025-03-18 16:46:04 UTC
+--- third_party/blink/renderer/modules/webgl/webgl_rendering_context_base.cc.orig	2025-06-19 07:37:57 UTC
 +++ third_party/blink/renderer/modules/webgl/webgl_rendering_context_base.cc
 @@ -6334,7 +6334,7 @@ void WebGLRenderingContextBase::TexImageHelperMediaVid
-   constexpr bool kAllowZeroCopyImages = true;
- #endif
+   // unmultiply has been requested or we need to never premultiply for Image
+   // creation from a VideoFrame.
  
 -#if BUILDFLAG(IS_ANDROID) || BUILDFLAG(IS_LINUX)
 +#if BUILDFLAG(IS_ANDROID) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)

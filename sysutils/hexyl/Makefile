@@ -1,10 +1,10 @@
 PORTNAME=	hexyl
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.16.0
-PORTREVISION=	2
+PORTREVISION=	5
 CATEGORIES=	sysutils
 
-MAINTAINER=	mikael@FreeBSD.org
+MAINTAINER=	bofh@FreeBSD.org
 COMMENT=	Command-line hex viewer
 WWW=		https://github.com/sharkdp/hexyl
 

@@ -1,11 +1,10 @@
 PORTNAME=	mariadb
-DISTVERSION=	1.1.11
-PORTREVISION=	1
+DISTVERSION=	1.1.12
 CATEGORIES=	databases python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
-MAINTAINER=	DtxdF@disroot.org
+MAINTAINER=	dtxdf@FreeBSD.org
 COMMENT=	Python MariaDB extension
 WWW=		https://github.com/mariadb-corporation/mariadb-connector-python
 

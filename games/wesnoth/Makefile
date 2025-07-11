@@ -1,12 +1,10 @@
 PORTNAME=	wesnoth
-PORTVERSION=	1.18.4
+PORTVERSION=	1.18.5
 PORTEPOCH=	1
 CATEGORIES=	games
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}-${PORTVERSION:R}/${PORTNAME}-${PORTVERSION} \
 		http://files.wesnoth.org/ \
 		http://ports.toco-domains.de/
-
-#PATCH_SITES+=	https://github.com/wesnoth/wesnoth/commit/
 
 MAINTAINER=	fluffy@FreeBSD.org
 COMMENT=	Fantasy turn-based strategy game

@@ -1,6 +1,6 @@
 PORTNAME=	duckdb
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.2.1
+DISTVERSION=	1.3.2
 CATEGORIES=	databases
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -14,14 +14,16 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 USES=		cmake:testing compiler:c++11-lang ssl
 USE_GITHUB=	yes
 GH_TUPLE=	\
-		duckdb:duckdb-excel:f14e7c3beaf379c54b47b996aa896a1d814e1be8:excel/extension/excel \
+		duckdb:duckdb-delta:6d626173e9efa6615c25eb08d979d1372100d5db:delta/extension/delta \
+		duckdb:duckdb-encodings:dc3c206e237b517abcdd95ebe40d02dcd0f71084:encodings/extension/encodings \
+		duckdb:duckdb-excel:cf00672f2d16685d9aefcca48c6a04d8c37d7015:excel/extension/excel \
 		duckdb:duckdb-fts:3aa6a180b9c101d78070f5f7214c27552bb091c8:fts/extension/fts \
-		duckdb:duckdb-httpfs:85ac4667bcb0d868199e156f8dd918b0278db7b9:httpfs/extension/httpfs \
-		duckdb:duckdb-inet:a8b361ab5d43f6390d7cb48c9a9f0638e9581cf9:inet/extension/inet \
-		duckdb:duckdb-spatial:2905968a85703e5ca3698976daafd759554e1744:spatial/extension/spatial \
-		duckdb:duckdb-sqlite:96e451c043afa40ee39b7581009ba0c72a523a12:sqlite/extension/sqlite_scanner \
-		duckdb:duckdb-sqlsmith:e1eb0ae02a258f176d6e06b84c0d6c7a09c6b4da:sqlsmith/extension/sqlsmith \
-		duckdb:duckdb-vss:580e8918eb89f478cf2d233ca908ffbd3ec752c5:vss/extension/vss
+		duckdb:duckdb-httpfs:af7bcaf40c775016838fef4823666bd18b89b36b:httpfs/extension/httpfs \
+		duckdb:duckdb-inet:eb2455703ca0665e69b9fd20fd1d8816c547cb49:inet/extension/inet \
+		duckdb:duckdb-spatial:d1ffa8c21fe1f90064956a119491e6d6d993192a:spatial/extension/spatial \
+		duckdb:duckdb-sqlite:ed38d770e0bbf1d5a6660ec1887cc5abef65be15:sqlite/extension/sqlite_scanner \
+		duckdb:duckdb-sqlsmith:3b1ad2bd7234c1143b4a819517873f4b465168d2:sqlsmith/extension/sqlsmith \
+		duckdb:duckdb-vss:ccfa7c9c1f1f540fa7f433a93d32bed772aa44f4:vss/extension/vss
 # the list of out-of-tree extensions is here: .github/config/out_of_tree_extensions.cmake
 
 CXXFLAGS+=	-I${WRKSRC}/extension/inet/src/include 
@@ -72,6 +74,6 @@ post-extract: # remove the jemalloc extension directory just in case
 post-test: # run tests
 	@cd ${TEST_WRKSRC} && test/unittest
 
-# tests as of 1.2.1: All tests passed (48 skipped tests, 398067 assertions in 3602 test cases)
+# tests as of 1.3.2: All tests passed (50 skipped tests, 385129 assertions in 3789 test cases)
 
 .include <bsd.port.mk>

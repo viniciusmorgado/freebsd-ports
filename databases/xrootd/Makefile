@@ -1,5 +1,6 @@
 PORTNAME=	xrootd
 DISTVERSION=	5.6.9
+PORTREVISION=	2
 CATEGORIES=	databases
 MASTER_SITES=	https://xrootd.slac.stanford.edu/download/v${DISTVERSION}/
 
@@ -18,7 +19,9 @@ LICENSE_FILE_LGPL3=	${WRKSRC}/COPYING.LGPL
 BUILD_DEPENDS=	bash:shells/bash
 LIB_DEPENDS=	libcurl.so:ftp/curl \
 		libtinyxml.so:textproc/tinyxml \
-		libuuid.so:misc/e2fsprogs-libuuid
+		libuuid.so:misc/libuuid
+TEST_DEPENDS=	cppunit>0:devel/cppunit \
+		googletest>0:devel/googletest
 
 USES=		cmake:testing compiler:c++14-lang cpe gnome localbase:ldflags pkgconfig readline shebangfix ssl
 SHEBANG_GLOB=	*.sh
@@ -35,6 +38,8 @@ CMAKE_TESTING_ON=	ENABLE_TESTS
 
 CXXFLAGS+=	-Ddirent64=dirent
 LDFLAGS+=	-lexecinfo
+
+TESTING_UNSAFE=	some tests hang on accept()
 
 OPTIONS_DEFINE=		KERBEROS5
 OPTIONS_GROUP=		PLUGINS

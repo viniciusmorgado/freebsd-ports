@@ -1,11 +1,11 @@
 PORTNAME=	simutrans
-DISTVERSION=	124.3
-PORTREVISION=	1
+DISTVERSION=	124.3.1
 CATEGORIES=	games
 
 MAINTAINER=	amdmi3@FreeBSD.org
 COMMENT=	Transportation simulator
-WWW=		https://www.simutrans.com/
+WWW=		https://www.simutrans.com/ \
+		https://github.com/aburch/simutrans/
 
 LICENSE=	ART10 MIT
 LICENSE_COMB=	multi
@@ -24,7 +24,7 @@ CMAKE_ON=	CMAKE_DISABLE_FIND_PACKAGE_CCache \
 		CMAKE_DISABLE_FIND_PACKAGE_Subversion
 CMAKE_ARGS=	-DSIMUTRANS_USE_REVISION=1
 
-PORTSCOUT=	skipv:nightly
+PORTSCOUT=	skipv:Nightly
 
 PORTDATA=	*
 PORTDOCS=	change_request.txt \

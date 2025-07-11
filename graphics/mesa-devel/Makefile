@@ -1,6 +1,6 @@
 PORTNAME=	mesa
-DISTVERSION=	25.0-branchpoint-2650
-DISTVERSIONSUFFIX=	-gee0ee2a3174
+DISTVERSION=	25.1-branchpoint-3999
+DISTVERSIONSUFFIX=	-gace49d9e52a
 CATEGORIES=	graphics
 PKGNAMESUFFIX=	-devel
 
@@ -8,7 +8,6 @@ PATCH_SITES=	https://github.com/mesa3d/${GL_PROJECT}/commit/:github
 PATCHFILES+=	700efacda59c.patch:-p1:github
 PATCH_SITES+=	${GL_SITE}/${GL_ACCOUNT}/${GL_PROJECT}/-/commit/
 PATCHFILES+=	2930dcbb3329.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/22246
-PATCHFILES+=	11aaf934112c.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/22941
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Bleeding edge Mesa drivers (OpenCL, OpenGL, Vulkan)
@@ -34,7 +33,7 @@ USE_LDCONFIG=	yes
 GL_SITE=	https://gitlab.freedesktop.org
 BINARY_ALIAS=	python=${PYTHON_CMD}
 SHEBANG_FILES=	src/vulkan/*/*control.py
-MESON_ARGS=	-Dgallium-xa=disabled \
+MESON_ARGS=	-Dgallium-mediafoundation=disabled \
 		-Dandroid-libbacktrace=disabled \
 		-Dlibunwind=disabled \
 		-Dlmsensors=disabled \
@@ -113,6 +112,7 @@ OPENCL_LIB_DEPENDS=	libLLVMSPIRVLib.so.${OPENCL_SOVERSION}:devel/spirv-llvm-tran
 OPENCL_RUN_DEPENDS=	libclc-${LLVM_PORT:T}>0:devel/libclc@${LLVM_PORT:T}
 OPENCL_SOVERSION=	${LLVM_VERSION}${${LLVM_VERSION}>=18:?.1:}
 OPENCL_CONFIGURE_ENV=	PKG_CONFIG_PATH="${LLVM_PREFIX}/libdata/pkgconfig"
+OPENCL_MESON_FALSE=	b_lundef # environ
 OPENCL_MESON_TRUE=	gallium-rusticl
 OPENCL_IMPLIES=		LLVM ${"${PORT_OPTIONS:Miris}":?iris:radeonsi} # any from OPTIONS_GROUP_GALLIUM
 

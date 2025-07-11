@@ -11,16 +11,16 @@ LICENSE=	LGPL21
 LIB_DEPENDS=	libassuan.so:security/libassuan \
 		libgpg-error.so:security/libgpg-error \
 		libgpgme.so:security/gpgme \
-		libgpgmepp.so:security/gpgme-cpp \
-		libqgpgmeqt6.so:security/gpgme-qt@qt6
+		libgpgmepp.so:security/gpgmepp \
+		libqgpgmeqt6.so:security/qgpgme@qt6
 
 USES=		cmake compiler:c++11-lib desktop-file-utils gettext kde:6 qt:6 \
 		tar:xz xorg
 USE_KDE=	auth codecs completion config configwidgets coreaddons crash \
 		i18n iconthemes itemmodels jobwidgets kcmutils kio \
 		notifications notifyconfig parts service solid sonnet \
-		statusnotifieritem texteditor textwidgets widgetsaddons \
-		windowsystem xmlgui \
+		statusnotifieritem texteditor textwidgets userfeedback \
+		widgetsaddons windowsystem xmlgui \
 		ecm:build
 # pim components
 USE_KDE+=	akonadi akonadimime contacts grantleetheme kontactinterface \

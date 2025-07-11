@@ -1,8 +1,6 @@
 PORTNAME=	plasma-workspace
 DISTVERSION=	${KDE_PLASMA_VERSION}
 CATEGORIES=	x11 kde kde-plasma
-PATCH_SITES=	https://invent.kde.org/plasma/plasma-workspace/-/commit/
-PATCHFILES=	47d502353720004fa2d0e7b0065994b75b3e0ded.patch:-p1 # fix layout regression in notifications
 
 COMMENT=	KDE Plasma Workspace
 MAINTAINER=	kde@FreeBSD.org
@@ -24,6 +22,8 @@ RUN_DEPENDS=	kio-extras>=24.12.3:devel/kio-extras \
 		kio-fuse>=5.1.0_1:filesystems/kio-fuse \
 		mkfontscale:x11-fonts/mkfontscale \
 		oxygen-icons>=0:x11-themes/oxygen-icons \
+		xmessage:x11/xmessage \
+		xrdb:x11/xrdb \
 		xset:x11/xset
 
 USES=		cmake desktop-file-utils gettext gl kde:6 pkgconfig python \
@@ -41,10 +41,18 @@ USE_KDE=	activities activities-stats archive attica auth baloo \
 		statusnotifieritem svg syntaxhighlighting texteditor \
 		textwidgets unitconversion userfeedback wallet wayland \
 		widgetsaddons windowsystem xmlgui \
-		ecm:build plasma-wayland-protocols:build
-USE_QT=		5compat base declarative svg wayland
+		ecm:build plasma-wayland-protocols:build \
+		kwin-x11:run
+USE_QT=		5compat base declarative location svg wayland
 USE_XORG=	ice sm x11 xau xcb xcursor xext xfixes xft xi xrender xtst
 SHEBANG_FILES=	components/calendar/kconf_update/migrate-calendar-to-plugin-id.py.in
+
+CMAKE_ON=	PLASMA_X11_DEFAULT_SESSION
+
+OPTIONS_DEFINE=	GTK
+
+GTK_DESC=		Global menu bar support for GTK applications
+GTK_RUN_DEPENDS=	appmenu-gtk-module>0:x11/gtk-app-menu
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|g' \

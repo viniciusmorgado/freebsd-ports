@@ -1,6 +1,7 @@
 PORTNAME=	telegraf
 DISTVERSIONPREFIX=v
-DISTVERSION=	1.34.1
+DISTVERSION=	1.35.1
+PORTREVISION=	1
 CATEGORIES=	net-mgmt
 
 MAINTAINER=	girgen@FreeBSD.org
@@ -34,6 +35,9 @@ USERS=		${TELEGRAF_USER}
 GROUPS=		${TELEGRAF_GROUP}
 
 TELEGRAF_LOGDIR=/var/log/${PORTNAME}
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|/usr/local|${PREFIX}|g' ${WRKSRC}/config/config.go
 
 post-install:
 	${MKDIR} ${STAGEDIR}${TELEGRAF_LOGDIR}

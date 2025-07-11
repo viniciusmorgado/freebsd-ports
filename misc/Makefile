@@ -62,6 +62,7 @@
     SUBDIR += compat11x
     SUBDIR += compat12x
     SUBDIR += compat13x
+    SUBDIR += compat14x
     SUBDIR += compat4x
     SUBDIR += compat5x
     SUBDIR += compat6x
@@ -97,7 +98,6 @@
     SUBDIR += dtach
     SUBDIR += dvorak7min
     SUBDIR += dynomite
-    SUBDIR += e2fsprogs-libuuid
     SUBDIR += ecflow
     SUBDIR += edfbrowser
     SUBDIR += edflib
@@ -115,6 +115,7 @@
     SUBDIR += figlet-fonts
     SUBDIR += findutils
     SUBDIR += flag
+    SUBDIR += flag-icons
     SUBDIR += flashlight
     SUBDIR += fortune-mod-bible
     SUBDIR += fortune-mod-bofh
@@ -247,9 +248,13 @@
     SUBDIR += libsupertone
     SUBDIR += libsweep-lidar
     SUBDIR += libutf
+    SUBDIR += libuuid
     SUBDIR += libxdf
     SUBDIR += lifelines
     SUBDIR += lightgbm
+    SUBDIR += linux-c7-sdl12-extralibs
+    SUBDIR += linux-rl9-sdl12-extralibs
+    SUBDIR += linux-rl9-sdl20-extralibs
     SUBDIR += llama-cpp
     SUBDIR += locale-en_DK
     SUBDIR += localedata
@@ -265,6 +270,7 @@
     SUBDIR += mate-user-guide
     SUBDIR += mbuffer
     SUBDIR += mc
+    SUBDIR += mcp-probe
     SUBDIR += mdp
     SUBDIR += meshoptimizer
     SUBDIR += metalink-checker
@@ -278,7 +284,6 @@
     SUBDIR += mnn
     SUBDIR += molequeue
     SUBDIR += mtx
-    SUBDIR += mxnet
     SUBDIR += najitool
     SUBDIR += navi
     SUBDIR += ncnn
@@ -307,7 +312,6 @@
     SUBDIR += opennn
     SUBDIR += openr2
     SUBDIR += openvdb
-    SUBDIR += orange3
     SUBDIR += orville-write
     SUBDIR += osinfo-db
     SUBDIR += ossp-uuid
@@ -394,6 +398,7 @@
     SUBDIR += php82-calendar
     SUBDIR += php83-calendar
     SUBDIR += php84-calendar
+    SUBDIR += php85-calendar
     SUBDIR += pinfo
     SUBDIR += pipe
     SUBDIR += posixtestsuite
@@ -423,10 +428,10 @@
     SUBDIR += py-codecarbon
     SUBDIR += py-colorbrewer
     SUBDIR += py-colored
+    SUBDIR += py-colorzero
     SUBDIR += py-crudini
     SUBDIR += py-datasets
     SUBDIR += py-detecta
-    SUBDIR += py-dictdiffer
     SUBDIR += py-eemeter
     SUBDIR += py-einops
     SUBDIR += py-emoji
@@ -438,9 +443,9 @@
     SUBDIR += py-fleep
     SUBDIR += py-fuzzy
     SUBDIR += py-gguf
-    SUBDIR += py-gluoncv
-    SUBDIR += py-gluonnlp
+    SUBDIR += py-gpiozero
     SUBDIR += py-halo
+    SUBDIR += py-hf-xet
     SUBDIR += py-hist
     SUBDIR += py-histoprint
     SUBDIR += py-huepy
@@ -467,7 +472,6 @@
     SUBDIR += py-mmengine
     SUBDIR += py-mmsegmentation
     SUBDIR += py-molequeue
-    SUBDIR += py-mxnet
     SUBDIR += py-natten
     SUBDIR += py-npTDMS
     SUBDIR += py-numcodecs
@@ -481,11 +485,6 @@
     SUBDIR += py-openpaperwork-gtk
     SUBDIR += py-openvdb
     SUBDIR += py-optuna
-    SUBDIR += py-orange3-associate
-    SUBDIR += py-orange3-datafusion
-    SUBDIR += py-orange3-educational
-    SUBDIR += py-orange3-network
-    SUBDIR += py-orange3-timeseries
     SUBDIR += py-oterm
     SUBDIR += py-palettable
     SUBDIR += py-papermill
@@ -520,8 +519,6 @@
     SUBDIR += py-shell-gpt
     SUBDIR += py-sigopt
     SUBDIR += py-soapy_power
-    SUBDIR += py-spdx
-    SUBDIR += py-spdx-lookup
     SUBDIR += py-spdx-tools
     SUBDIR += py-spinners
     SUBDIR += py-synced-collections
@@ -558,6 +555,7 @@
     SUBDIR += qt6ct
     SUBDIR += quantum++
     SUBDIR += quary
+    SUBDIR += radio_datetime_analyzer
     SUBDIR += randomx
     SUBDIR += rash
     SUBDIR += raspberrypi-gpioshutdown
@@ -581,6 +579,7 @@
     SUBDIR += rubygem-iesd
     SUBDIR += rubygem-mime-types
     SUBDIR += rubygem-mime-types-data
+    SUBDIR += rubygem-mime-types-gitlab
     SUBDIR += rubygem-mimemagic
     SUBDIR += rubygem-octicons
     SUBDIR += rubygem-rabbit
@@ -592,6 +591,7 @@
     SUBDIR += seabios
     SUBDIR += sent
     SUBDIR += seq2
+    SUBDIR += sff
     SUBDIR += sfm
     SUBDIR += shared-mime-info
     SUBDIR += shc
@@ -628,6 +628,7 @@
     SUBDIR += thrill
     SUBDIR += timetrace
     SUBDIR += timezonemap
+    SUBDIR += timr-tui
     SUBDIR += tkcron
     SUBDIR += tkinfo
     SUBDIR += tkregexp
@@ -664,6 +665,7 @@
     SUBDIR += viz
     SUBDIR += vote
     SUBDIR += vxl
+    SUBDIR += wavedrom
     SUBDIR += wego
     SUBDIR += whichman
     SUBDIR += window
