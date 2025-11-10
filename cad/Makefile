@@ -17,6 +17,7 @@
     SUBDIR += calculix
     SUBDIR += calculix-ccx
     SUBDIR += camotics
+    SUBDIR += camv-rnd
     SUBDIR += caneda
     SUBDIR += cascade
     SUBDIR += cascade-compiler
@@ -24,7 +25,6 @@
     SUBDIR += csxcad
     SUBDIR += cura
     SUBDIR += cura-engine
-    SUBDIR += cvc
     SUBDIR += digital
     SUBDIR += dinotrace
     SUBDIR += ecpprog
@@ -54,7 +54,6 @@
     SUBDIR += horizon-eda
     SUBDIR += hs-verismith
     SUBDIR += ifcopenshell
-    SUBDIR += impact
     SUBDIR += irsim
     SUBDIR += iverilog
     SUBDIR += k40-whisperer
@@ -120,6 +119,7 @@
     SUBDIR += py-pygmsh
     SUBDIR += py-pymtl
     SUBDIR += py-pyvcd
+    SUBDIR += py-verilog-parser
     SUBDIR += py-vunit-hdl
     SUBDIR += python-gdsii
     SUBDIR += qcad
@@ -133,6 +133,7 @@
     SUBDIR += qucsator
     SUBDIR += repsnapper
     SUBDIR += rubygem-gdsii
+    SUBDIR += sch-rnd
     SUBDIR += scotch
     SUBDIR += silice
     SUBDIR += solvespace
@@ -155,6 +156,7 @@
     SUBDIR += veroroute
     SUBDIR += veryl
     SUBDIR += xcircuit
+    SUBDIR += xschem
     SUBDIR += xyce
     SUBDIR += yosys
     SUBDIR += yosys-ghdl-plugin

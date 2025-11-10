@@ -181,6 +181,7 @@
     SUBDIR += libesmtp
     SUBDIR += libetpan
     SUBDIR += libmilter
+    SUBDIR += libopensmtpd
     SUBDIR += libpst
     SUBDIR += libsieve
     SUBDIR += libspamtest
@@ -192,7 +193,6 @@
     SUBDIR += linux-r7-organizer
     SUBDIR += linux-r7-organizer-pro
     SUBDIR += listadmin
-    SUBDIR += lmtp2nntp
     SUBDIR += lookout
     SUBDIR += lurker
     SUBDIR += mail-expire
@@ -256,7 +256,6 @@
     SUBDIR += msglint
     SUBDIR += msmtp
     SUBDIR += mu
-    SUBDIR += mu4e
     SUBDIR += mu4e-maildirs
     SUBDIR += mulberry
     SUBDIR += mutt
@@ -290,6 +289,7 @@
     SUBDIR += opensmtpd-extras-table-redis
     SUBDIR += opensmtpd-extras-table-socketmap
     SUBDIR += opensmtpd-extras-table-sqlite
+    SUBDIR += opensmtpd-filter-dkimsign
     SUBDIR += opensmtpd-filter-rspamd
     SUBDIR += opensmtpd-filter-senderscore
     SUBDIR += opensmtpd-table-sqlite
@@ -518,6 +518,7 @@
     SUBDIR += py-dkimpy-milter
     SUBDIR += py-email-reply-parser
     SUBDIR += py-email-validator
+    SUBDIR += py-exchangelib
     SUBDIR += py-flanker
     SUBDIR += py-flask-mail
     SUBDIR += py-flufl.bounce
@@ -542,6 +543,7 @@
     SUBDIR += py-pyspf
     SUBDIR += py-python-slimta
     SUBDIR += py-pyzmail
+    SUBDIR += py-resend
     SUBDIR += py-rfc6555
     SUBDIR += py-spf-engine
     SUBDIR += py-tlsrpt-reporter

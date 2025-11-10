@@ -1,6 +1,6 @@
 PORTNAME=	bitwarden-cli
 DISTVERSIONPREFIX=	cli-v
-DISTVERSION=	2025.5.0
+DISTVERSION=	2025.10.0
 PORTREVISION=	1
 CATEGORIES=	security
 MASTER_SITES=	https://nodejs.org/dist/v${PKG_NODE_VER}/:node
@@ -43,6 +43,9 @@ GH_PROJECT=	clients
 
 MAKE_ENV+=	PYTHONDONTWRITEBYTECODE=1
 
+# don't strip executable upon install since it causes error
+STRIP=		# empty
+
 BUILD_WRKSRC=	${WRKSRC}/apps/cli
 
 PLIST_FILES=	bin/bw \
@@ -54,7 +57,7 @@ OPTIONS_DEFINE=	DOCS
 
 PREFETCH_FILE=	${PORTNAME}-${DISTVERSION}-node-modules${EXTRACT_SUFX}
 PREFETCH_TIMESTAMP=	61171200
-PKG_NODE_VER=	22.10.0
+PKG_NODE_VER=	22.15.1
 PKG_FETCH_VER=	3.5
 PKG_NODE_CONFIGURE_ARGS=--openssl-use-def-ca-store \
 			--shared-brotli \
@@ -75,36 +78,66 @@ pre-fetch:
 		${CP} -R ${FILESDIR}/packagejsons/* ${WRKDIR}/node-modules-cache; \
 		cd ${WRKDIR}/node-modules-cache && \
 		${SETENV} HOME=${WRKDIR} \
-			npm ci --ignore-scripts --no-progress --no-audit --no-fund; \
-		${FIND} ${WRKDIR}/node-modules-cache -depth 1 -print | \
-			${GREP} -v node_modules | ${XARGS} ${RM} -r; \
+			npm ci --ignore-scripts --no-progress --no-audit --no-fund --no-update-notifier; \
 		${FIND} ${WRKDIR}/node-modules-cache -type d -exec ${CHMOD} 755 {} ';'; \
-		cd ${WRKDIR}/node-modules-cache && \
-		${MTREE_CMD} -cbnSp node_modules | ${MTREE_CMD} -C | ${SED} \
-			-e 's:time=[0-9.]*:time=${PREFETCH_TIMESTAMP}.000000000:' \
-			-e 's:\([gu]id\)=[0-9]*:\1=0:g' \
-			-e 's:flags=.*:flags=none:' \
-			-e 's:^\.:./node_modules:' > node-modules-cache.mtree; \
-		${TAR} -cz --options 'gzip:!timestamp' \
-			-f ${DISTDIR}/${PREFETCH_FILE} \
-			@node-modules-cache.mtree; \
+		for dir in `${FIND} -s ${WRKDIR}/node-modules-cache -type d -name node_modules -print | \
+			${GREP} -ve 'node_modules/.*/node_modules'`; do \
+			${MTREE_CMD} -cbnSp $${dir} | ${MTREE_CMD} -C | \
+			${AWK} ' \
+				function oct2dec(octstr, i, c, val) { \
+					val = 0; \
+					for (i = 1; i <= length(octstr); i++) { \
+						c = substr(octstr, i, 1); \
+						if (c < "0" || c > "7") { \
+							break; \
+						} \
+						val = val * 8 + (c - "0"); \
+					} \
+					return val; \
+				} \
+				{ \
+					if (match($$0, /mode=[0-7]+/)) { \
+						mode_str = substr($$0, RSTART+5, RLENGTH-5); \
+						mode = oct2dec(mode_str); \
+						exec_bits = 73; \
+						special_bits = 3584; \
+						special = and(mode, special_bits); \
+						if (and(mode, exec_bits) != 0) { \
+							newmode = or(special, 493); \
+						} else { \
+							newmode = or(special, 420); \
+						} \
+						sub(/mode=[0-7]+/, "mode=" sprintf("%04o", newmode)); \
+					} \
+					print; \
+				}' | \
+			${SED} \
+				-e 's:time=[0-9.]*:time=${PREFETCH_TIMESTAMP}.000000000:' \
+				-e 's:\([gu]id\)=[0-9]*:\1=0:g' \
+				-e 's:flags=.*:flags=none:' \
+				-e "s|\.|$${dir}|" \
+				-e 's|^${WRKDIR}|.|' >> ${WRKDIR}/node-modules-cache.mtree; \
+		done; \
+		${TAR} -cz --options 'gzip:!timestamp' -f ${DISTDIR}/${PREFETCH_FILE} \
+			-C ${WRKDIR} @node-modules-cache.mtree; \
 		${RM} -r ${WRKDIR}; \
 	fi
 
 post-extract:
-	${MV} ${WRKDIR}/node_modules ${WRKSRC}
+	@for dir in `${FIND} -s ${WRKDIR}/node-modules-cache -type d -name node_modules -print | \
+		${GREP} -ve 'node_modules/.*/node_modules'`; do \
+		${MV} $${dir} `${ECHO_CMD} $${dir} | sed -e 's|${WRKDIR}/node-modules-cache|${WRKSRC}|'`; \
+	done
 
 post-patch:
 	# apply FreeBSD patches for node
-	for p in ${PATCHDIR}/node/patch-*;do \
-		${PATCH} -s -p0 -d ${WRKDIR}/node-v${PKG_NODE_VER} < $${p}; \
-	done
+	@${BSDMAKE} PATCHDIR=${PATCHDIR}/node \
+		WRKSRC=${WRKDIR}/node-v${PKG_NODE_VER} do-patch
 	# apply node patch from pkg-fetch
-	${PATCH} -s -p1 -d ${WRKDIR}/node-v${PKG_NODE_VER} < \
+	@${PATCH} -s -p1 -d ${WRKDIR}/node-v${PKG_NODE_VER} < \
 		${WRKSRC}/node_modules/@yao-pkg/pkg-fetch/patches/node.v${PKG_NODE_VER}.cpp.patch
 
 pre-build:
-	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} npm run postinstall
 	# build patched node for pkg
 	cd ${WRKDIR}/node-v${PKG_NODE_VER} && \
 		${SETENV} ${CONFIGURE_ENV} CC=${CC} CXX=${CXX} ./configure ${PKG_NODE_CONFIGURE_ARGS} && \
@@ -126,8 +159,7 @@ do-build:
 		./dist/bw completion --shell zsh > _bw
 
 do-install:
-	# don't strip executable since it causes error
-	${INSTALL_KLD} ${BUILD_WRKSRC}/dist/bw ${STAGEDIR}${PREFIX}/bin
+	${INSTALL_PROGRAM} ${BUILD_WRKSRC}/dist/bw ${STAGEDIR}${PREFIX}/bin
 	@${MKDIR} ${STAGEDIR}${PREFIX}/share/zsh/site-functions
 	${INSTALL_DATA} ${BUILD_WRKSRC}/_bw \
 		${STAGEDIR}${PREFIX}/share/zsh/site-functions/_bw

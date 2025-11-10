@@ -1,6 +1,5 @@
 PORTNAME=	kio
 DISTVERSION=	${KDE_FRAMEWORKS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	devel kde kde-frameworks
 
 COMMENT=	Network transparent access to files and data
@@ -20,4 +19,5 @@ USE_KDE=	archive auth bookmarks colorscheme completion config \
 USE_QT=		5compat base
 USE_XORG=	x11
 
+KDE_FRAMEWORKS_VERSION=	6.19.1
 .include <bsd.port.mk>

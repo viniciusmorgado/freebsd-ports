@@ -21,18 +21,21 @@ BUILD_DEPENDS=	objdump:devel/binutils
 LIB_DEPENDS=	libbrotlidec.so:archivers/brotli \
 		libcares.so:dns/c-ares \
 		libicui18n.so:devel/icu \
+		libllhttp.so:www/llhttp \
 		libnghttp2.so:www/libnghttp2 \
 		libnghttp3.so:www/libnghttp3 \
 		libngtcp2.so:net/libngtcp2 \
 		libsimdjson.so:devel/simdjson \
 		libuv.so:devel/libuv \
 		libzstd.so:archivers/zstd
+RUN_DEPENDS=	corepack>=0:www/corepack
 
 USES=		compiler:c++11-lang gmake localbase pkgconfig python:build shebangfix tar:xz
 
 CONFIGURE_ARGS=	--prefix=${PREFIX:S|^${DESTDIR}||} \
 		--shared-brotli \
 		--shared-cares \
+		--shared-http-parser \
 		--shared-libuv \
 		--shared-nghttp2 \
 		--shared-nghttp3 \
@@ -40,8 +43,10 @@ CONFIGURE_ARGS=	--prefix=${PREFIX:S|^${DESTDIR}||} \
 		--shared-simdjson \
 		--shared-zlib \
 		--shared-zstd \
+		--without-corepack \
 		--with-intl=system-icu \
 		--without-npm
+CXXFLAGS_powerpc64=	-mpower8-vector
 HAS_CONFIGURE=	yes
 MAKE_ENV=	CC.host="${CCACHE_BIN} ${CC}" \
 		CFLAGS.host="${CFLAGS}" \
@@ -81,6 +86,9 @@ post-patch:
 # Clean up bundled libraries
 	@${RM} -r ${WRKSRC}/deps/brotli/
 	@${RM} -r ${WRKSRC}/deps/cares/
+	@${RM} -r ${WRKSRC}/deps/corepack/
+	@${RM} -r ${WRKSRC}/deps/icu-small/
+	@${RM} -r ${WRKSRC}/deps/llhttp/
 	@${RM} -r ${WRKSRC}/deps/nghttp2/
 	@${RM} -r ${WRKSRC}/deps/ngtcp2/
 	@${RM} -r ${WRKSRC}/deps/npm/
@@ -100,5 +108,8 @@ post-configure:
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/node
+
+post-install-BUNDLED_SSL-on:
+	cd ${STAGEDIR}${PREFIX} && ${FIND} include/node/openssl/ -type f >> ${TMPPLIST}
 
 .include <bsd.port.mk>

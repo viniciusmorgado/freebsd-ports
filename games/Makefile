@@ -132,7 +132,7 @@
     SUBDIR += bugsx
     SUBDIR += bumprace
     SUBDIR += burgerspace
-    SUBDIR += burrtools
+    SUBDIR += burr-tools
     SUBDIR += bzflag
     SUBDIR += bzflag-server
     SUBDIR += cake
@@ -309,7 +309,6 @@
     SUBDIR += fs2open
     SUBDIR += funnyboat
     SUBDIR += galaxis
-    SUBDIR += galaxyhack
     SUBDIR += garden-of-coloured-lights
     SUBDIR += gargoyle
     SUBDIR += gbrainy
@@ -595,6 +594,7 @@
     SUBDIR += lm-solve
     SUBDIR += lmarbles
     SUBDIR += lmpc
+    SUBDIR += loderunner-ng
     SUBDIR += lolcat
     SUBDIR += lordsawar
     SUBDIR += lpairs
@@ -631,6 +631,7 @@
     SUBDIR += minerbold
     SUBDIR += minetest_game
     SUBDIR += minetestmapper
+    SUBDIR += minigalaxy
     SUBDIR += mirrormagic
     SUBDIR += miscom
     SUBDIR += mizuma
@@ -643,7 +644,6 @@
     SUBDIR += moonlight-embedded-devel
     SUBDIR += moonlight-qt
     SUBDIR += moria
-    SUBDIR += motogt
     SUBDIR += mrboom
     SUBDIR += mt_dolphin_ia
     SUBDIR += mt_gtk_client
@@ -720,7 +720,6 @@
     SUBDIR += openglad
     SUBDIR += openjazz
     SUBDIR += openjk
-    SUBDIR += openlierox
     SUBDIR += openmortal
     SUBDIR += openmsx
     SUBDIR += openmw
@@ -754,7 +753,6 @@
     SUBDIR += pachi
     SUBDIR += pacmanarena
     SUBDIR += palapeli
-    SUBDIR += palomino
     SUBDIR += pangzero
     SUBDIR += passage
     SUBDIR += patapizza-tetris
@@ -779,7 +777,6 @@
     SUBDIR += pipewalker
     SUBDIR += pmars
     SUBDIR += pmars-sdl
-    SUBDIR += pokerth
     SUBDIR += polyglot
     SUBDIR += pongix
     SUBDIR += ponscripter-07th-mod
@@ -862,7 +859,6 @@
     SUBDIR += redorblack
     SUBDIR += regoth
     SUBDIR += reminiscence
-    SUBDIR += renpy
     SUBDIR += rescue
     SUBDIR += retroarch
     SUBDIR += retroarch-assets
@@ -1138,8 +1134,8 @@
     SUBDIR += xpired
     SUBDIR += xpuzzletama
     SUBDIR += xpyraminx
-    SUBDIR += xqf
     SUBDIR += xrally
+    SUBDIR += xray-16
     SUBDIR += xray_re-tools
     SUBDIR += xrick
     SUBDIR += xrisk

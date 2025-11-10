@@ -1,5 +1,5 @@
-TIMESTAMP = 1750521592
-SHA256 (go/security_aws-iam-authenticator/aws-iam-authenticator-v0.7.3/v0.7.3.mod) = 8ecdfec2a08ef66fd57567c82bc179409b8cf25a6a783345c9b07f258524ad01
-SIZE (go/security_aws-iam-authenticator/aws-iam-authenticator-v0.7.3/v0.7.3.mod) = 4278
-SHA256 (go/security_aws-iam-authenticator/aws-iam-authenticator-v0.7.3/v0.7.3.zip) = aa54c7e555826a93cd55c4f651af71ddad0408367085e6f9044bedf386824008
-SIZE (go/security_aws-iam-authenticator/aws-iam-authenticator-v0.7.3/v0.7.3.zip) = 227851
+TIMESTAMP = 1760692813
+SHA256 (go/security_aws-iam-authenticator/aws-iam-authenticator-v0.7.8/v0.7.8.mod) = 4163efce19348a71e733d26c118986834ed5afac48be7cec9dfc9c57d094dae3
+SIZE (go/security_aws-iam-authenticator/aws-iam-authenticator-v0.7.8/v0.7.8.mod) = 4788
+SHA256 (go/security_aws-iam-authenticator/aws-iam-authenticator-v0.7.8/v0.7.8.zip) = 499be04fd4aaec4210863e54e653220138fd9f6b7280b785ac90bbbe40594fe9
+SIZE (go/security_aws-iam-authenticator/aws-iam-authenticator-v0.7.8/v0.7.8.zip) = 233860

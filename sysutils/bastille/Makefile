@@ -1,7 +1,6 @@
 PORTNAME=	bastille
-DISTVERSION=	1.0.1.250714
+DISTVERSION=	1.1.0.251001
 CATEGORIES=	sysutils
-
 MAINTAINER=	jdhurtado@orbiware.com
 # co-maintainer: snarfingcode666@gmail.com
 COMMENT=	Jail automation framework
@@ -32,8 +31,8 @@ post-install:
 	${MKDIR} ${STAGEDIR}${DATADIR}
 	(cd ${WRKSRC}/usr/local/share/bastille && \
 		${COPYTREE_SHARE} . ${STAGEDIR}${DATADIR})
-	${INSTALL_MAN} ${WRKSRC}/usr/local/man/man8/bastille.8.gz \
-		${STAGEDIR}${PREFIX}/share/man/man8/${PORTNAME}.8.gz
+	${INSTALL_MAN} ${WRKSRC}/usr/local/share/man/man8/bastille.8 \
+		${STAGEDIR}${PREFIX}/share/man/man8/${PORTNAME}.8
 	${INSTALL_DATA} ${WRKSRC}/usr/local/etc/bastille/bastille.conf.sample \
 		${STAGEDIR}${ETCDIR}/${PORTNAME}.conf.sample
 

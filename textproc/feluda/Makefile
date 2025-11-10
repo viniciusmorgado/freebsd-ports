@@ -1,6 +1,6 @@
 PORTNAME=	feluda
-DISTVERSION=	1.8.5
-PORTREVISION=	1
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.10.1 # Cargo.lock patched: `make patch cargo-crates`
 CATEGORIES=	textproc
 
 MAINTAINER=	nxjoseph@protonmail.com
@@ -16,6 +16,10 @@ LIB_DEPENDS=	libgit2.so:devel/libgit2 \
 USES=		cargo localbase ssl
 USE_GITHUB=	yes
 GH_ACCOUNT=	anistark
+
+# OPENSSL_NO_VENDOR needs openssl-src present so I'm using Cargo.lock and Cargo.toml patches:
+# first to not fetch openssl-src tarball and later to remove git2 ossl vendored feature.
+CARGO_ENV=	OPENSSL_NO_VENDOR=1
 
 PLIST_FILES=	bin/${PORTNAME}
 

@@ -46,6 +46,7 @@
     SUBDIR += dhall
     SUBDIR += dlang-tools
     SUBDIR += dotnet
+    SUBDIR += dotnet-devel
     SUBDIR += dotnet-host
     SUBDIR += dotnet8
     SUBDIR += duktape
@@ -89,7 +90,6 @@
     SUBDIR += gauche
     SUBDIR += gawk
     SUBDIR += gcc
-    SUBDIR += gcc11
     SUBDIR += gcc12
     SUBDIR += gcc12-devel
     SUBDIR += gcc13
@@ -127,6 +127,7 @@
     SUBDIR += go122
     SUBDIR += go123
     SUBDIR += go124
+    SUBDIR += go125
     SUBDIR += gomacro
     SUBDIR += gprolog
     SUBDIR += gptscript
@@ -162,6 +163,7 @@
     SUBDIR += julia
     SUBDIR += jython
     SUBDIR += kawa
+    SUBDIR += kefir
     SUBDIR += kf5-kross
     SUBDIR += kotlin
     SUBDIR += kturtle
@@ -290,6 +292,7 @@
     SUBDIR += ptoc
     SUBDIR += purescript
     SUBDIR += py-dhall
+    SUBDIR += py-gherkin-official
     SUBDIR += py-hy
     SUBDIR += py-lupa
     SUBDIR += py-sly
@@ -306,7 +309,9 @@
     SUBDIR += python310
     SUBDIR += python311
     SUBDIR += python312
-    SUBDIR += python39
+    SUBDIR += python313
+    SUBDIR += python313t
+    SUBDIR += python314
     SUBDIR += qmasm
     SUBDIR += quickjs
     SUBDIR += quickjs-ng
@@ -333,6 +338,7 @@
     SUBDIR += rust
     SUBDIR += rust-bootstrap
     SUBDIR += rust-nightly
+    SUBDIR += rust188
     SUBDIR += rustpython
     SUBDIR += s7
     SUBDIR += s7-nrepl
@@ -381,6 +387,7 @@
     SUBDIR += tolua++
     SUBDIR += trealla-prolog
     SUBDIR += tuareg-mode.el
+    SUBDIR += typescript
     SUBDIR += typstfmt
     SUBDIR += typstyle
     SUBDIR += ucc
@@ -396,6 +403,5 @@
     SUBDIR += ypsilon
     SUBDIR += zephir
     SUBDIR += zig
-    SUBDIR += zig010
 
 .include <bsd.port.subdir.mk>

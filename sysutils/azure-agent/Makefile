@@ -1,6 +1,6 @@
 PORTNAME=	azure-agent
 PORTVERSION=	2.12.0.2
-PORTREVISION=	1
+PORTREVISION=	2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -16,6 +16,7 @@ RUN_DEPENDS=	sudo:security/sudo \
 		${PYTHON_PKGNAMEPREFIX}pyasn1>=0:devel/py-pyasn1@${PY_FLAVOR} \
 		ca_root_nss>0:security/ca_root_nss
 
+NO_ARCH=	yes
 NO_BUILD=	yes
 USES=		python shebangfix
 

@@ -1,3 +1,3 @@
-TIMESTAMP = 1720022802
-SHA256 (googleapis-common-protos-1.63.2.tar.gz) = 27c5abdffc4911f28101e635de1533fb4cfd2c37fbaa9174587c799fac90aa87
-SIZE (googleapis-common-protos-1.63.2.tar.gz) = 112890
+TIMESTAMP = 1761446622
+SHA256 (googleapis_common_protos-1.71.0.tar.gz) = 1aec01e574e29da63c80ba9f7bbf1ccfaacf1da877f23609fe236ca7c72a2e2e
+SIZE (googleapis_common_protos-1.71.0.tar.gz) = 146454

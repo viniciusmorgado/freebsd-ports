@@ -33,7 +33,7 @@ lib/libkioarchive6.so.6.0.0
 %%QT_PLUGINDIR%%/kf6/thumbcreator/directorythumbnail.so
 %%QT_PLUGINDIR%%/kf6/thumbcreator/djvuthumbnail.so
 %%QT_PLUGINDIR%%/kf6/thumbcreator/ebookthumbnail.so
-%%EXR%%%%QT_PLUGINDIR%%/kf6/thumbcreator/exrthumbnail.so
+%%OPENEXR%%%%QT_PLUGINDIR%%/kf6/thumbcreator/exrthumbnail.so
 %%QT_PLUGINDIR%%/kf6/thumbcreator/imagethumbnail.so
 %%QT_PLUGINDIR%%/kf6/thumbcreator/jpegthumbnail.so
 %%QT_PLUGINDIR%%/kf6/thumbcreator/kraorathumbnail.so
@@ -860,11 +860,13 @@ share/locale/ro/LC_MESSAGES/kfileaudiopreview6.mo
 share/locale/ro/LC_MESSAGES/kio-extras_kcms.mo
 share/locale/ro/LC_MESSAGES/kio6_activities.mo
 share/locale/ro/LC_MESSAGES/kio6_archive.mo
+share/locale/ro/LC_MESSAGES/kio6_filenamesearch.mo
 share/locale/ro/LC_MESSAGES/kio6_fish.mo
 share/locale/ro/LC_MESSAGES/kio6_info.mo
 share/locale/ro/LC_MESSAGES/kio6_man.mo
 share/locale/ro/LC_MESSAGES/kio6_mtp.mo
 share/locale/ro/LC_MESSAGES/kio6_nfs.mo
+share/locale/ro/LC_MESSAGES/kio6_recentlyused.mo
 share/locale/ro/LC_MESSAGES/kio6_sftp.mo
 share/locale/ro/LC_MESSAGES/kio6_smb.mo
 share/locale/ro/LC_MESSAGES/kio6_thumbnail.mo

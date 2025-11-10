@@ -4,7 +4,7 @@ DISTVERSION=	0.3.13
 PORTREVISION=	8
 CATEGORIES=	databases
 
-MAINTAINER=	nc@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Standalone streaming replication tool for SQLite
 WWW=		https://litestream.io/
 
@@ -77,4 +77,3 @@ post-extract:
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
 
 .include <bsd.port.mk>
-

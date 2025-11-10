@@ -113,7 +113,7 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 #				  Default: not set.
 # PATCH_SITES	- Primary location(s) for distribution patch files
 #				  if not found locally.
-# DIST_SUBDIR	- Suffix to ${DISTDIR}.  If set, all ${DISTFILES} and
+# DIST_SUBDIR	- Suffix to ${DISTDIR}.  If set to non-empty value, all ${DISTFILES} and
 #				  ${PATCHFILES} will be put in this subdirectory of
 #				  ${DISTDIR} (see below).  Also they will be fetched in this
 #				  subdirectory from FreeBSD mirror sites.
@@ -1007,7 +1007,7 @@ PORTSDIR?=		/usr/ports
 LOCALBASE?=		/usr/local
 LINUXBASE?=		/compat/linux
 DISTDIR?=		${PORTSDIR}/distfiles
-_DISTDIR?=		${DISTDIR}/${DIST_SUBDIR}
+_DISTDIR?=		${DISTDIR}${empty(DIST_SUBDIR):?:${DIST_SUBDIR:D/${DIST_SUBDIR}}}
 INDEXDIR?=		${PORTSDIR}
 SRC_BASE?=		/usr/src
 USESDIR?=		${PORTSDIR}/Mk/Uses
@@ -1081,7 +1081,7 @@ LD+=		--sysroot=${CROSS_SYSROOT}
 STRIP_CMD=	${CROSS_BINUTILS_PREFIX}strip
 # only bmake support the below
 STRIPBIN=	${STRIP_CMD}
-.export.env STRIPBIN
+.export-env STRIPBIN
 .endif
 
 #
@@ -1165,7 +1165,7 @@ OSVERSION!=	${AWK} '/^\#define[[:blank:]]__FreeBSD_version/ {print $$3}' < ${SRC
 .    endif
 _EXPORTED_VARS+=	OSVERSION
 
-.    if ${OPSYS} == FreeBSD && (${OSVERSION} < 1305000 || (${OSVERSION} >= 1400000 && ${OSVERSION} < 1402000))
+.    if ${OPSYS} == FreeBSD && (${OSVERSION} < 1305000 || (${OSVERSION} >= 1400000 && ${OSVERSION} < 1403000))
 _UNSUPPORTED_SYSTEM_MESSAGE=	Ports Collection support for your ${OPSYS} version has ended, and no ports\
 								are guaranteed to build on this system. Please upgrade to a supported release.
 .      if defined(ALLOW_UNSUPPORTED_SYSTEM)
@@ -1773,6 +1773,7 @@ CFLAGS:=	${CFLAGS:C/ $//}
 .      if defined(_CPUCFLAGS)
 .        if !empty(_CPUCFLAGS)
 CFLAGS:=	${CFLAGS:C/${_CPUCFLAGS}//}
+CXXFLAGS:=	${CXXFLAGS:C/${_CPUCFLAGS}//}
 .        endif
 .      endif
 .    endif
@@ -2543,7 +2544,7 @@ _PATCH_SITES_ENV+=	_PATCH_SITES_${_group}=${_PATCH_SITES_${_group}:Q}
 CKSUMFILES=		${ALLFILES}
 
 # List of all files, with ${DIST_SUBDIR} in front.  Used for checksum.
-.    if defined(DIST_SUBDIR)
+.    if defined(DIST_SUBDIR) && !empty(DIST_SUBDIR)
 .      if defined(CKSUMFILES) && ${CKSUMFILES}!=""
 _CKSUMFILES?=	${CKSUMFILES:S/^/${DIST_SUBDIR}\//}
 .      endif
@@ -3600,10 +3601,6 @@ install-ldconfig-file:
 fixup-lib-pkgconfig:
 	@if [ -d ${STAGEDIR}${PREFIX}/lib/pkgconfig ]; then \
 		if [ -z "$$(${FIND} ${STAGEDIR}${PREFIX}/lib/pkgconfig -maxdepth 0 -empty)" ]; then \
-			if [ -n "${DEVELOPER:Dyes}" ]; then \
-				${ECHO_MSG} "===>   File(s) found in lib/pkgconfig while correct path is libdata/pkgconfig"; \
-				${ECHO_MSG} "       Applying fix but consider using USES= pathfix or adjust install path"; \
-			fi; \
 			${MKDIR} ${STAGEDIR}${PREFIX}/libdata/pkgconfig; \
 			${MV} ${STAGEDIR}${PREFIX}/lib/pkgconfig/* ${STAGEDIR}${PREFIX}/libdata/pkgconfig; \
 		fi; \
@@ -3913,7 +3910,7 @@ delete-distfiles:
 			fi; \
 		done; \
 	fi)
-.      if defined(DIST_SUBDIR)
+.      if defined(DIST_SUBDIR) && !empty(DIST_SUBDIR)
 	-@${RMDIR} ${_DISTDIR} >/dev/null 2>&1 || ${TRUE}
 .      endif
 .    endif
@@ -3930,7 +3927,7 @@ delete-distfiles-list:
 			fi; \
 		done; \
 	fi
-.      if defined(DIST_SUBDIR)
+.      if defined(DIST_SUBDIR) && !empty(DIST_SUBDIR)
 	@${ECHO_CMD} "${RMDIR} ${_DISTDIR} 2>/dev/null || ${TRUE}"
 .      endif
 .    endif
@@ -4493,7 +4490,7 @@ describe-json:
 	${ECHO_CMD} \"complete_options_list\":[\"${COMPLETE_OPTIONS_LIST:ts,:S/,/\",\"/g}\"], ;\
 	${ECHO_CMD} \"categories\":[\"${CATEGORIES:ts,:S/,/\",\"/g}\"], ;\
 	${ECHO_CMD} \"license\":[\"${LICENSE:ts,:S/,/\",\"/g}\"], ;\
-	${ECHO_CMD} \"deprecated\":\""${DEPRECATED:S/"/\\\"/g:S/\\\\*/*/g:S/\\\'/'/g}" \", ;\
+	${ECHO_CMD} \"deprecated\":\"${DEPRECATED:Q:S/"/\\\"/g:S/\\\\*/*/g:S/\\\'/'/g}\", ;\
 	${ECHO_CMD} \"broken\":\"${BROKEN:Q:S/"/\\\"/g:S/\\\\*/*/g:S/\\\'/'/g}\", ;\
 	${ECHO_CMD} \"distversion\":\"${DISTVERSION}\", ;\
 	${ECHO_CMD} \"distversionprefix\":\"${DISTVERSIONPREFIX}\", ;\
@@ -5334,7 +5331,9 @@ show-warnings:
 	@${ECHO_MSG} "${m}" | ${FMT_80}
 	@${ECHO_MSG}
 .      endfor
+.      if ${WARNING_WAIT} != 0
 	@sleep ${WARNING_WAIT}
+.      endif
 .    endif
 
 .    if defined(ERROR)
@@ -5360,7 +5359,7 @@ show-dev-warnings:
 .        endfor
 .        if defined(DEV_WARNING_FATAL)
 	@${FALSE}
-.        else
+.        elif ${DEV_WARNING_WAIT} != 0
 	@sleep ${DEV_WARNING_WAIT}
 .        endif
 .      endif

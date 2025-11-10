@@ -1,6 +1,5 @@
 PORTNAME=	uv
-DISTVERSION=	0.7.13
-PORTREVISION=	1
+DISTVERSION=	0.9.8
 CATEGORIES=	devel
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -30,7 +29,12 @@ GH_ACCOUNT=	astral-sh
 OPENSSLINC=	/usr/include
 OPENSSLLIB=	/usr/lib
 
-PROGS=		uv uvx
+RUSTFLAGS+=	-C link-args=-Wl,-rpath=${LOCALBASE}/lib
+
+PROGS=		uv \
+		uvx \
+		uv-build \
+		uv-globfilter
 
 PLIST_FILES=	${PROGS:S/^/bin\//}
 

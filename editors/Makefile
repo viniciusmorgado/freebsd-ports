@@ -240,10 +240,10 @@
     SUBDIR += psgml
     SUBDIR += puff
     SUBDIR += py-babi
+    SUBDIR += py-editor
     SUBDIR += py-editorconfig
     SUBDIR += py-pynvim
     SUBDIR += py-vim-bridge
-    SUBDIR += quilter
     SUBDIR += rehex
     SUBDIR += retext
     SUBDIR += rubygem-neovim
@@ -287,7 +287,6 @@
     SUBDIR += vscode
     SUBDIR += web-mode
     SUBDIR += with-editor
-    SUBDIR += with-editor-devel
     SUBDIR += wordgrinder
     SUBDIR += wxhexeditor
     SUBDIR += xcoral
